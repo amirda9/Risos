@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center" style="color: white;" translate>Before and After</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-row class="ion-padding-bottom">
+    <ion-col id="col" class="ion-text-center" style="height: 541px; width: 400px;">
+    <!-- <img id="image"> -->
+    <img-comparison-slider >
+  <img slot="first" id="image" />
+  <img slot="second" id="image2" src="https://api.risos.co/mediafiles/{{secondimg}}"/>
+</img-comparison-slider>
+    <!-- {{this.img}} -->
+  </ion-col>
+  </ion-row>
+
+  <ion-row  class="ion-justify-content-center ion-padding-horizontal ion-padding-top">
+    <ion-col class="ion-text-center" size="6" size-lg="4">
+      <ion-button
+        (click)="backward()"
+        shape="round"
+        style="
+          text-transform: none;
+          width: 100%;
+          color: black;
+          --background: #cf3109;
+          height: 2em;
+          font-size: 1em;
+          border-radius: 20px 20px 20px 20px;
+          border: 1px solid #e5e5ea;
+          box-shadow: 0px 1px 2px #000000;
+          font-weight: lighter;
+        "
+      translate>
+        Try Again
+      </ion-button>
+    </ion-col>
+    <ion-col class="ion-text-center" size="6" size-lg="4">
+      <ion-button
+        (click)="forward()"
+        shape="round"
+        style="
+          text-transform: none;
+          width: 100%;
+          color: black;
+          --background: #73cf09;
+          height: 2em;
+          font-size: 1em;
+          border-radius: 20px 20px 20px 20px;
+          border: 1px solid #e5e5ea;
+          box-shadow: 0px 1px 2px #000000;
+          font-weight: lighter;
+        "
+      translate>
+        Continue
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>

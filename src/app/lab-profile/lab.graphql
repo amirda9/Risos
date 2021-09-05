@@ -1,0 +1,22 @@
+query lab($id:ID!){
+  Lab(id:$id){
+    relatedProfile{
+      id
+      _id
+      firstName
+      phoneNumber
+      telephoneNumber
+    }
+    orderSet{
+      expectedDate
+      relatedService{
+        relatedPatient{
+          relatedProfile{
+            firstName
+            profilePic
+          }
+        }
+      }
+    }
+  }
+}

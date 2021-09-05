@@ -1,0 +1,5 @@
+mutation CreateDevice($ProfileId:ID!,$deviceId:String!){
+  createDevice(ProfileId:$ProfileId,deviceId:$deviceId){
+    status
+  }
+}

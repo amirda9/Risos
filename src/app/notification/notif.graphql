@@ -1,0 +1,10 @@
+query allnotif($id:[String]) {
+allNotification(receivers_In:$id){
+  edges{
+    node{
+      id
+      message
+    }
+  }
+}
+}

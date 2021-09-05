@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title
+      class="ion-text-center"
+      style=" color: white;"
+      translate>Sign up</ion-title
+    >
+    <ion-buttons slot="start">
+      <ion-back-button
+        color="light"
+        defaultHref="home"
+      ></ion-back-button>
+    </ion-buttons>
+    <!-- </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div style="margin-top: 5em;">
+  <ion-row class="ion-justify-content-center ion-padding-horizontal ion-padding-top">
+    <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
+    <ion-input  [(ngModel)]="phone_no" [placeholder]=PnTrans>
+    </ion-input>
+  </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-justify-content-center ion-padding-horizontal ion-padding-top">
+    <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
+    <ion-input  [(ngModel)]="email" [placeholder]=EmailTrans>
+    </ion-input>
+  </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-justify-content-center ion-padding-horizontal ion-padding-top">
+    <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
+    <ion-input dir="rtl" [(ngModel)]="pass" [placeholder]=passTranslated [type]="is_TextFieldType ? 'text' : 'password'">
+      <ion-icon size="medium" style='margin-right: 15px; color:#aaaaaa'[name]="is_TextFieldType ? 'eye-off' : 'eye'" (click)="togglePasswordFieldType()"></ion-icon>
+    </ion-input>
+  </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-justify-content-center ion-padding-horizontal " >
+    <ion-col class="ion-text-left" size="12" size-lg="8">
+    <ion-label style="color: #aaaaaa; font-size: 0.8em; padding-left: 0.5em;" translate>Have at least 6 characters</ion-label>
+  </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-justify-content-center ion-padding-horizontal ion-padding-top">
+    <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
+    <ion-input  [(ngModel)]="pass_rep" [placeholder]=repassTranslated [type]="is_TextFieldType ? 'text' : 'password'">
+    </ion-input>
+  </ion-col>
+  </ion-row>
+</div>
+
+  <div class="footer">
+    <ion-row class="ion-justify-content-center  ion-padding-horizontal" >
+      <ion-col class="ion-text-center" size="12" size-lg="8">
+        <ion-button (click)="confirm()" shape="round" style="width: 100%; color: black; --background:#3abff8;" translate>
+
+        Sign up
+
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center  ion-padding-horizontal" >
+      <ion-col class="ion-text-center" size="12" size-lg="8">
+        <ion-label style="font-size: 0.9em; color: #3eb5df;" translate>
+        Already have an account?
+        </ion-label>
+        <ion-label (click)="login()" style="font-size: 0.9em; color: #3eb5df;" translate> Log in</ion-label>
+
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

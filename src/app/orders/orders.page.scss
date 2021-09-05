@@ -1,0 +1,28 @@
+ion-toolbar {
+  --background: #0000ff;
+}
+
+ion-content {
+  --background: #f2f2f7;
+}
+
+ion-segment {
+  --background: #dcdbd7;
+  border-radius: 20px 20px 20px 20px;
+  --border-checked : 0px;
+}
+
+ion-segment-button{
+  --background-checked: #3abff8;
+  --color-checked: #000000;
+  border-radius: 20px 20px 20px 20px;
+}
+
+
+ion-searchbar{
+  --border:1px solid #aaaaaa;
+  --border-radius: 20px 20px 20px 20px;
+  --placeholder-color:#aaaaaa;
+  --background:#f8f7fa;
+}
+

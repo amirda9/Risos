@@ -1,0 +1,12 @@
+query allsmile($d_id:[String],$p_id:[String]){
+  allSmiledesignservice(doctor_In:$d_id,patient_In:$p_id){
+    edges{
+      node{
+        status
+        teethLessImage
+        width
+        heigth
+      }
+    }
+  }
+}

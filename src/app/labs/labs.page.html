@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="color: white; " class="ion-text-center" translate>Laboratory</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/createlab']" routerLinkActive="router-link-active" router color="light" style="">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+
+  <ion-row
+    class="ion-justify-content-center ion-padding-horizontal ion-padding-top"
+  >
+    <ion-col size="2" class="ion-text-center">
+      <ion-button (click)="search()" fill="clear" translate>Go</ion-button>
+    </ion-col>
+    <ion-col size="10">
+      <ion-searchbar [(ngModel)]="text"></ion-searchbar>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col class="ion-text-center">
+      <ion-button (click)="byRate()" expand="block" fill="clear" shape="round">
+        Sort by Rate
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-row class="ion-no-padding" *ngFor="let lab of labs | async">
+    <ion-col class="ion-text-center" size="12" size-lg="8">
+    <app-lab-card  Name={{lab.node.relatedProfile.firstName}} (click)="labOrders(lab.node.id)" [Number]="0"></app-lab-card>
+  </ion-col>
+  </ion-row>
+
+  <!-- <div *ngIf="searched">
+    <ion-row class="ion-no-padding" *ngFor="let lab of lab_s | async">
+      <ion-col class="ion-text-center" size="12" size-lg="8">
+      <app-lab-card  Name={{lab.node.relatedProfile.firstName}} (click)="labOrders(lab.node.id)" [Number]="0"></app-lab-card>
+    </ion-col>
+    </ion-row>
+  </div> -->
+
+</ion-content>
+

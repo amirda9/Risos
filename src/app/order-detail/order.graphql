@@ -1,0 +1,32 @@
+query order($id:ID!){
+  Order(id:$id){
+    id
+    status
+    finalizedLab {
+      relatedProfile{
+        firstName
+      }
+    }
+    ticketSet{
+      edges{
+        node{
+          id
+          message
+          sender{
+            _id
+          }
+        }
+      }
+    }
+    expectedDate
+    relatedService{
+      relatedPatient{
+        relatedProfile{
+              firstName
+              lastName
+              profilePic
+            }
+      }
+    }
+  }
+}

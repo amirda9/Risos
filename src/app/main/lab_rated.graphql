@@ -1,0 +1,13 @@
+query labrated{
+  allLab(sortByRate:"-rating"){
+    edges{
+      node{
+        rating
+        id
+        relatedProfile{
+          firstName
+        }
+      }
+    }
+  }
+}

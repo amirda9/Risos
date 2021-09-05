@@ -1,0 +1,125 @@
+ion-toolbar {
+  --background: #0000ff;
+}
+
+ion-content {
+  --background: #f2f2f7;
+}
+
+ion-button {
+  width: 100%;
+  height: 2em;
+  font-size: 1.2em;
+  border-radius: 20px 20px 20px 20px;
+  border: 1px solid #e5e5ea;
+  box-shadow: 0px 1px 2px #000000;
+}
+
+ion-segment {
+  --background: #dcdbd7;
+  // border-radius: 20px 20px 20px 20px;
+  --border-checked : 0px;
+}
+
+ion-segment-button{
+  // --background-checked: #3abff8;
+  --color-checked: #000000;
+  // border-radius: 20px 20px 20px 20px;
+  font-size: 0.5em;
+}
+
+
+.pic {
+  position: relative;
+  height: 70vh;
+  // top: 0;
+  // left: 0;
+}
+.mask {
+  position: absolute;
+  // top: 60px;
+  // left: 30px;
+}
+.c {
+  --background: wheat;
+}
+
+.cd-project-mask {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.cd-project-mask .featured-image {
+  /* project intro image */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  bottom: auto;
+  right: auto;
+  transform: translateX(-50%) translateY(-50%);
+  height: 50%;
+  width: 50%;
+  background: url(../../assets/lab2.jpg) no-repeat center center;
+  background-size: cover;
+}
+
+.cd-project-mask .mask {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  bottom: auto;
+  right: auto;
+  transform: translateX(-50%) translateY(-50%);
+  width: 300px;
+  height: 300px;
+}
+
+.cd-project-mask .mask .mask-border {
+  /* this is used to create a frame around the mask */
+  position: absolute;
+}
+
+.cd-project-mask .mask .mask-border-top,
+.cd-project-mask .mask .mask-border-bottom {
+  /* this is used to create a frame around the mask */
+  height: calc(50vh - 150px + 10px);
+  width: 100vw;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+}
+
+.cd-project-mask .mask .mask-border-top {
+  bottom: calc(100% - 10px);
+}
+
+.cd-project-mask .mask .mask-border-bottom {
+  top: calc(100% - 10px);
+}
+
+.cd-project-mask .mask .mask-border-left,
+.cd-project-mask .mask .mask-border-right {
+  /* this is used to create a frame around the mask */
+  height: 100vh;
+  width: calc(50vw - 150px + 10px);
+  top: 50%;
+  bottom: auto;
+  transform: translateY(-50%);
+}
+
+.cd-project-mask .mask .mask-border-left {
+  left: calc(100% - 10px);
+}
+
+.cd-project-mask .mask .mask-border-right {
+  right: calc(100% - 10px);
+}
+
+
+#wrapper {
+  border: solid 1px black;
+  resize: both;
+  overflow: hidden;
+}

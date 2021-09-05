@@ -1,0 +1,5 @@
+mutation forgetPass($phoneNumber:String!){
+  forgetPass(phoneNumber:$phoneNumber){
+    status
+  }
+}

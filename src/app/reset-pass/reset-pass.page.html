@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center" style="color: white"
+    translate>Reset password</ion-title
+    >
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-justify-content-center" style="margin-top: 7em">
+    <ion-grid>
+      <ion-row
+        class="
+          ion-justify-content-center ion-padding-horizontal ion-padding-bottom
+        "
+        style="padding-top: 0.3em"
+      >
+        <ion-col class="ion-text-center" size="8" size-lg="8">
+          <ion-label style="font-size: 0.9em;" translate>
+            Please enter your new password
+          </ion-label>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center ion-padding-horizontal ion-padding-top">
+        <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
+        <ion-input  [(ngModel)]="pass" placeholder="New Password" [type]="is_TextFieldType ? 'text' : 'password'">
+          <!-- <ion-icon name="eye" item-right></ion-icon> -->
+          <!-- <ion-icon slot="start" size="medium" style='color:#aaaaaa'[name]="is_TextFieldType ? 'eye-off' : 'eye'" (click)="togglePasswordFieldType()"></ion-icon> -->
+      </ion-input>
+      </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center ion-padding-horizontal ion-padding-top">
+        <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
+        <ion-input  [(ngModel)]="pass_rep" placeholder="Confirm Password" [type]="is_TextFieldType ? 'text' : 'password'">
+          <!-- <ion-icon size="medium" style='margin-right: 15px; color:#aaaaaa'[name]="is_TextFieldType ? 'eye-off' : 'eye'" (click)="togglePasswordFieldType()"></ion-icon> -->
+        </ion-input>
+      </ion-col>
+      </ion-row>
+
+      <div class="footer">
+        <ion-row class="ion-justify-content-center  ion-padding-horizontal" >
+          <ion-col class="ion-text-center" size="12" size-lg="8">
+            <ion-button (click)="save()" shape="round" style="font-weight: lighter; text-transform:none!important;width: 100%; color: black; --background:#3abff8;" translate>
+             Save
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        </div>
+
+    </ion-grid>
+  </div>
+</ion-content>

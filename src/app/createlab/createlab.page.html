@@ -1,0 +1,174 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="color:white;" translate>New Laboratory</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button
+        color="light"
+        defaultHref="tabs/labs"
+      ></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-row class="ion-text-center">
+  <ion-col>
+    <ion-row>
+      <ion-col>
+      <img src="../../assets/lab1.png" style="height: 15vh; border-radius: 50%;">
+    </ion-col>
+    </ion-row>
+    <ion-row class="ion-no-padding ion-text-center" style="margin-top: -16px;">
+      <ion-col>
+      <ion-label style="color: #3eb5df; font-size: 0.8em;" translate>
+        set a photo
+      </ion-label>
+    </ion-col>
+    </ion-row>
+
+  </ion-col>
+</ion-row>
+
+<ion-row
+      class="ion-justify-content-center ion-padding-horizontal ion-padding-vertical"
+    >
+      <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
+        <ion-row style="margin-bottom: -0.8em">
+          <ion-label
+            class="ion-padding-horizontal ion-no-padding"
+            style="
+              font-size: 16px;
+              padding-right: 4px;
+              padding-left: 4px;
+              margin-left: 8px;
+              color: #aaaaaa;
+              background: #f2f2f7;
+              z-index: 2;
+            "
+          translate>
+            Laboratory name
+          </ion-label>
+        </ion-row>
+        <ion-input style="z-index: 1;" [(ngModel)]="name"> </ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row
+      class="ion-justify-content-center ion-padding-horizontal ion-padding-bottom"
+    >
+      <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
+        <ion-row style="margin-bottom: -0.8em">
+          <ion-label
+            class="ion-padding-horizontal ion-no-padding"
+            style="
+              font-size: 16px;
+              padding-right: 4px;
+              padding-left: 4px;
+              margin-left: 8px;
+              color: #aaaaaa;
+              background: #f2f2f7;
+              z-index: 2;
+            "
+          translate>
+            Mobile number
+          </ion-label>
+        </ion-row>
+        <ion-input style="z-index: 1;" [(ngModel)]="mobile_no"> </ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row
+      class="ion-justify-content-center ion-padding-horizontal ion-padding-bottom"
+    >
+      <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
+        <ion-row style="margin-bottom: -0.6em">
+          <ion-label
+            class="ion-padding-horizontal ion-no-padding"
+            style="
+              font-size: 16px;
+              padding-right: 4px;
+              padding-left: 4px;
+              margin-left: 8px;
+              color: #aaaaaa;
+              background: #f2f2f7;
+              z-index: 2;
+            "
+          translate>
+            Landline number
+          </ion-label>
+        </ion-row>
+        <ion-input style="z-index: 1;" [(ngModel)]="land_no"> </ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row
+      class="ion-justify-content-center ion-padding-horizontal ion-padding-bottom"
+    >
+      <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
+        <ion-row style="margin-bottom: -0.6em">
+          <ion-label
+            class="ion-padding-horizontal ion-no-padding"
+            style="
+              font-size: 16px;
+              padding-right: 4px;
+              padding-left: 4px;
+              margin-left: 8px;
+              color: #aaaaaa;
+              background: #f2f2f7;
+              z-index: 2;
+            "
+          translate>
+            Address
+          </ion-label>
+        </ion-row>
+        <ion-input style="z-index: 1; height: 4.5em;" [(ngModel)]="address"> </ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row
+      class="ion-justify-content-center ion-padding-horizontal ion-padding-bottom"
+    >
+      <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
+        <ion-row style="margin-bottom: -0.6em">
+          <ion-label
+            class="ion-padding-horizontal ion-no-padding"
+            style="
+              font-size: 16px;
+              padding-right: 4px;
+              padding-left: 4px;
+              margin-left: 8px;
+              color: #aaaaaa;
+              background: #f2f2f7;
+              z-index: 2;
+            "
+          translate>
+            Description
+          </ion-label>
+        </ion-row>
+        <ion-input style="z-index: 1;" [(ngModel)]="desc"> </ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center ion-padding">
+      <ion-col class="ion-text-center" size="8" size-lg="6">
+        <ion-button
+          (click)="save()"
+          shape="round"
+          style="
+            text-transform: none;
+            width: 100%;
+            color: black;
+            --background: #3abff8;
+            height: 2em;
+            font-size: 1em;
+            border-radius: 20px 20px 20px 20px;
+            border: 1px solid #e5e5ea;
+            box-shadow: 0px 1px 2px #000000;
+            font-weight: lighter;
+          "
+        translate>
+          Save
+        </ion-button>
+      </ion-col>
+    </ion-row>
+</ion-content>

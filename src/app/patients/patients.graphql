@@ -1,0 +1,15 @@
+query patients($dr:[String]){
+  allPatient(doctor_In:$dr){
+    edges{
+      node{
+        id
+        relatedProfile{
+          id
+          firstName
+          lastName
+          profilePic
+        }
+      }
+    }
+  }
+}

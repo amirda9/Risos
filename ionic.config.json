@@ -1,0 +1,7 @@
+{
+  "name": "risos",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

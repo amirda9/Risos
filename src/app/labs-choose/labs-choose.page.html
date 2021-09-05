@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="color: white; text-align: center;" translate>Choosing Lab</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+  <ion-row *ngFor="let item of labs | async" class="ion-no-padding">
+    <ion-col class="ion-text-center" size="12" size-lg="8">
+    <app-lab-card  Name={{item.node.relatedProfile.firstName}} (click)="select(item.node._id)" [Number]="6"></app-lab-card>
+  </ion-col>
+  </ion-row>
+
+
+</ion-content>

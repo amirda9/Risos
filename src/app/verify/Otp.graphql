@@ -1,0 +1,5 @@
+mutation OTP($user:String!){
+  requestOtp(username:$user){
+    status
+  }
+}

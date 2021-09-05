@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title
+      class="ion-text-center"
+      style=" color: white"
+      translate>
+      Orders
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+
+  <ion-row
+    class="ion-justify-content-center ion-padding-horizontal ion-padding-top"
+  >
+    <ion-col class="ion-no-padding" size="12" size-lg="8">
+      <ion-segment  (ionChange)="state($event)">
+        <ion-segment-button value="processing">
+          <ion-label translate>Processing</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="ready">
+          <ion-label translate>Ready</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="sent">
+          <ion-label translate>Sent</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-col>
+  </ion-row>
+  <ion-row
+    class="ion-justify-content-center ion-padding-horizontal ion-padding-top"
+  >
+  <ion-col size='2'>
+    <ion-button (click)="search()" fill="clear" translate>Go</ion-button>
+  </ion-col>
+    <ion-col class="ion-no-padding" size="10" size-lg="8">
+      <ion-searchbar [(ngModel)]="text"  placeholder="Search Patient">
+      </ion-searchbar>
+    </ion-col>
+  </ion-row>
+
+  <!-- <ion-row  class="ion-justify-content-center ion-padding-horizontal">
+    <ion-col class="ion-text-center" size="12" size-lg="8">
+      <app-order-card (click)="show()"></app-order-card>
+    </ion-col>
+  </ion-row>
+
+  <ion-row  class="ion-justify-content-center ion-padding-horizontal">
+    <ion-col class="ion-text-center" size="12" size-lg="8">
+      <app-order-card (click)="show()"></app-order-card>
+    </ion-col>
+  </ion-row> -->
+
+  <div *ngIf="!searched">
+  <ion-row *ngFor="let item of orders | async" class="ion-justify-content-center ion-padding-horizontal">
+    <ion-col class="ion-text-center" size="12" size-lg="8">
+      <app-order-card (click)="show(item.node.id)" name="{{item.node.relatedService.relatedPatient.relatedProfile.firstName}}" img={{item.node.relatedService.relatedPatient.relatedProfile.profilePic}} status={{item.node.status}} date={{item.node.expectedDate}}></app-order-card>
+    </ion-col>
+  </ion-row>
+</div>
+
+
+<div *ngIf="searched">
+  <ion-row *ngFor="let item of orders | async" class="ion-justify-content-center ion-padding-horizontal">
+    <ion-col class="ion-text-center" size="12" size-lg="8">
+      <app-order-card (click)="show(item.node.id)" name="{{item.node.relatedService.relatedPatient.relatedProfile.firstName}}" img={{item.node.relatedService.relatedPatient.relatedProfile.profilePic}} status={{item.node.status}} date={{item.node.expectedDate}}></app-order-card>
+    </ion-col>
+  </ion-row>
+</div>
+
+</ion-content>

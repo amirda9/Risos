@@ -1,0 +1,16 @@
+ion-toolbar {
+  --background: #0000ff;
+}
+
+ion-content{
+  --background:#f2f2f7;
+}
+
+ion-input{
+  border:1px solid #aaaaaa;
+  border-radius: 20px 20px 20px 20px;
+  --placeholder-color:#aaaaaa;
+  --background:#f8f7fa;
+  --padding-start:0.5em;
+  height: 3em;
+}

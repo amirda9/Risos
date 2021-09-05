@@ -1,0 +1,265 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center" style="color: white;" translate>Patient document</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-row
+  class="ion-justify-content-center ion-padding-horizontal ion-padding-top"
+>
+<ion-col size="5">
+  <ion-row class="ion-justify-content-center " >
+    <ion-col class="vertical-align-content" >
+      <img [src]="base64" *ngIf="pro_status" alt="" style="border-radius: 50%; height: 12vh; ">
+      <img src="https://api.risos.co/mediafiles/{{pro_file}}" *ngIf="!pro_status" alt="" style="display: flex;
+      align-items: center;
+      justify-content: center;border-radius: 50%; height: 12vh; ">
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class="ion-text-center ion-no-padding">
+      <div><ion-label onclick="document.getElementById('getFile').click()" style="font-size: 0.7em; color: #3eb5df;">
+        Change profile photo
+      </ion-label><input id="getFile" type="file" style="display: none;" (change)="fileChangeEvent($event)"/></div>
+
+      <ngx-photo-editor
+[imageChanedEvent]="imageChangedEvent"
+(imageCropped)="imageCropped($event)"
+[viewMode]="3"></ngx-photo-editor>
+
+      <!-- <input type="file" (change)="fileChangeEvent($event)"> -->
+      <!-- <ion-input type="file" [(ngModel)]="file"></ion-input> -->
+      <!-- <ion-button (click)="print()"></ion-button> -->
+      <!-- <input type="file" id="customimage" class="file-upload"  (change)="myfunction($event)"> -->
+
+      <!-- <input type="file" #filechooser multiple /> -->
+
+    </ion-col>
+  </ion-row>
+ </ion-col>
+      <ion-col class="ion-padding-left" size="7">
+        <ion-row
+          class="ion-justify-content-center ion-padding-bottom"
+        >
+          <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
+            <ion-row style="margin-bottom: -0.6em">
+              <ion-label
+                class="ion-padding-horizontal ion-no-padding"
+                style="
+                  font-size: 16px;
+                  padding-right: 4px;
+                  padding-left: 4px;
+                  margin-left: 8px;
+                  color: #aaaaaa;
+                  background: #f2f2f7;
+                  z-index: 2;
+                "
+              translate>
+                First name
+              </ion-label>
+            </ion-row>
+            <ion-input style="z-index: 1;" [(ngModel)]="name">
+            </ion-input>
+          </ion-col>
+        </ion-row>
+
+        <ion-row
+          class="ion-justify-content-center "
+        >
+          <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
+            <ion-row style="margin-bottom: -0.6em">
+              <ion-label
+                class="ion-padding-horizontal ion-no-padding"
+                style="
+                  font-size: 16px;
+                  padding-right: 4px;
+                  padding-left: 4px;
+                  margin-left: 8px;
+                  color: #aaaaaa;
+                  background: #f2f2f7;
+                  z-index: 2;
+                "
+             translate >
+                Last name
+              </ion-label>
+            </ion-row>
+            <ion-input style="z-index: 1;" [(ngModel)]="last" >
+            </ion-input>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-row
+      class="ion-justify-content-center ion-padding-horizontal ion-padding-vertical"
+    >
+      <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
+        <ion-row style="margin-bottom: -0.6em">
+          <ion-label
+            class="ion-padding-horizontal ion-no-padding"
+            style="
+              font-size: 16px;
+              padding-right: 4px;
+              padding-left: 4px;
+              margin-left: 8px;
+              color: #aaaaaa;
+              background: #f2f2f7;
+              z-index: 2;
+            "
+         translate >
+            Mobile number
+          </ion-label>
+        </ion-row>
+        <ion-input style="z-index: 1;" [(ngModel)]="mobile" >
+        </ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row
+      class="ion-justify-content-center ion-padding-horizontal ion-padding-vertical"
+    >
+      <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
+        <ion-row style="margin-bottom: -0.6em">
+          <ion-label
+            class="ion-padding-horizontal ion-no-padding"
+            style="
+              font-size: 16px;
+              padding-right: 4px;
+              padding-left: 4px;
+              margin-left: 8px;
+              color: #aaaaaa;
+              background: #f2f2f7;
+              z-index: 2;
+            "
+          translate>
+            Age
+          </ion-label>
+        </ion-row>
+        <ion-input style="z-index: 1;" [(ngModel)]="age" >
+        </ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row
+      class="ion-justify-content-center ion-padding-horizontal ion-padding-vertical"
+    >
+      <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
+        <ion-row style="margin-bottom: -0.6em">
+          <ion-label
+            class="ion-padding-horizontal ion-no-padding"
+            style="
+              font-size: 16px;
+              padding-right: 4px;
+              padding-left: 4px;
+              margin-left: 8px;
+              color: #aaaaaa;
+              background: #f2f2f7;
+              z-index: 2;
+            "
+          translate>
+            Address
+          </ion-label>
+        </ion-row>
+        <ion-input style="height: 4em; z-index: 1;" [(ngModel)]="address" placeholder="Valiasr Sq - Tehran ">
+        </ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row
+      class="ion-justify-content-center ion-padding-horizontal ion-padding-vertical"
+    >
+      <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
+        <ion-row style="margin-bottom: -0.6em">
+          <ion-label
+            class="ion-padding-horizontal ion-no-padding"
+            style="
+              font-size: 16px;
+              padding-right: 4px;
+              padding-left: 4px;
+              margin-left: 8px;
+              color: #aaaaaa;
+              background: #f2f2f7;
+              z-index: 2;
+            "
+          translate>
+            Detail
+          </ion-label>
+        </ion-row>
+        <ion-input style="z-index: 1;" [(ngModel)]="detail" >
+        </ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center ion-padding-horizontal">
+      <ion-col class="ion-text-center" size="12" size-lg="8">
+        <ion-button
+          (click)="go()"
+          shape="round"
+          style="
+            text-transform: none;
+            width: 100%;
+            color: black;
+            --background: #3abff8;
+            height: 2em;
+            font-size: 1em;
+            border-radius: 20px 20px 20px 20px;
+            border: 1px solid #e5e5ea;
+            box-shadow: 0px 1px 2px #000000;
+            font-weight: lighter;
+          "
+        translate>
+          Smile Design
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center ion-padding-horizontal">
+      <ion-col class="ion-text-center" size="12" size-lg="8">
+        <ion-button
+          (click)="order()"
+          shape="round"
+          style="
+            text-transform: none;
+            width: 100%;
+            color: black;
+            --background: #3abff8;
+            height: 2em;
+            font-size: 1em;
+            border-radius: 20px 20px 20px 20px;
+            border: 1px solid #e5e5ea;
+            box-shadow: 0px 1px 2px #000000;
+            font-weight: lighter;
+          "
+        translate>
+          Order
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center ion-padding-horizontal">
+      <ion-col size="6">
+        <ion-button
+          shape="round"
+          [routerLink]="['/home']"
+          routerDirection="forward"
+          style="color: black; --background: #ffffff"
+          (click)="labs()"
+          translate>
+          <!-- <h2> -->
+          Laboratory
+          <!-- </h2> -->
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button
+          shape="round"
+          style="color: black; --background: #ffffff"
+          (click)="gallery()"
+          translate>
+          <!-- <h2> -->
+          Gallery
+          <!-- </h2> -->
+        </ion-button>
+      </ion-col>
+    </ion-row>
+</ion-content>

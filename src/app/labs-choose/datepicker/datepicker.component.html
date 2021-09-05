@@ -1,0 +1,29 @@
+<ion-grid fixed>
+
+
+
+  <ion-row>
+    <ion-col class="ion-text-center">
+      <!-- <ion-button #datepickerInput expand="full" color="primary" onclick="document.getElementById('datepickerInput').click()">
+        <ion-icon slot="date" name="save"></ion-icon>
+        Pick Date
+      </ion-button> -->
+      <input id="datepickerInput" type="text" #datepickerInput [(ngModel)]="date" placeholder="Click here to pick a date" />
+      <!-- <ion-input #datepickerInput></ion-input> -->
+    </ion-col>
+  </ion-row>
+
+  <ng-persian-datepicker
+  [input]="datepickerInput"
+  dateFormat="jYYYY-jMM-jDD"
+  [uiTheme]="'dark'" [dateIsGregorian]="true"></ng-persian-datepicker>
+
+  <ion-row>
+    <ion-col>
+      <ion-button expand="full" color="success" (click)="save()">
+        <ion-icon slot="start" name="save"></ion-icon>
+        Save
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

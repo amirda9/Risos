@@ -1,0 +1,5 @@
+mutation createlab($Username:String!,$mobile:String!,$land:String! , $adress:String! , $description:String!){
+  createLab(name:$Username , phoneNumber :$mobile , telephoneNumber:$land , address:$adress , description:$description){
+    token
+  }
+}

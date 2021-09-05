@@ -1,0 +1,5 @@
+mutation changePass($new:String!,$user:String!){
+  changePassword(newPassword:$new,username:$user){
+    status
+  }
+}

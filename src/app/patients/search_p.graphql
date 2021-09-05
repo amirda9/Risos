@@ -1,0 +1,15 @@
+query search_p($id:[String]!,$name:String!){
+	allPatient(doctor_In:$id,searchByName:$name){
+    edges{
+      node{
+        id
+        relatedProfile{
+          id
+          firstName
+          lastName
+          profilePic
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true">
+  <!-- <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header> -->
+
+  <!-- <div id="container">
+    <strong>Ready to create an app?</strong>
+    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  </div> -->
+
+<ion-row >
+  <img style="max-height: 600px; width: 100%;" src="../../assets/final back white-01.png">
+</ion-row>
+
+  <div class="footer">
+    <ion-row class="ion-padding-horizontal">
+      <ion-col class="ion-text-center" size="12" >
+        <ion-button shape="round" class="signin" [routerLink]="['/login']" routerDirection="forward" style="color: black; --background:#3abff8;">
+         <!-- <h2> -->
+           <ion-label>
+            {{ 'home.login' | translate }}
+          </ion-label>
+         <!-- </h2> -->
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-padding-horizontal" style="padding-top: 0.1em;">
+      <ion-col class="ion-text-center" size="12">
+        <ion-button shape="round" [routerLink]="['/signup']" routerDirection="forward" style="color: black; --background:#f8f7fa;">
+          <!-- <h2> -->
+            {{ 'home.register' | translate }}
+          <!-- </h2> -->
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-padding-horizontal" style="padding-top: 0.1em;">
+      <ion-col class="ion-text-center" size="6">
+        <ion-button shape="round" (click)="useLanguage('en')" style="color: black; --background:#f8f7fa;">
+          English
+        </ion-button>
+      </ion-col>
+      <ion-col class="ion-text-center" size="6">
+        <ion-button shape="round" (click)="useLanguage('fa')" style="color: black; --background:#f8f7fa;" translate>
+          فارسی
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+  </div>
+</ion-content>

@@ -1,0 +1,52 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Teeth Number {{chosenTooth}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-radio-group (ionChange)="selectService($event)"
+            value="{{invoice[chosenTooth] ? invoice[chosenTooth].chosenService : ''}}">
+            <ion-list-header>
+                <ion-label>
+                    Choose Service
+                </ion-label>
+            </ion-list-header>
+
+            <ion-item *ngFor="let service of services">
+                <ion-label>{{service}}</ion-label>
+                <ion-radio value="{{service}}"></ion-radio>
+            </ion-item>
+        </ion-radio-group>
+        <ion-item>
+            Set Cl in mm
+            <br>
+            {{cl}}
+            <ion-range color="danger" pin="true" (ionChange)="setCl($event)" min="0" max="100"
+                value="{{invoice[chosenTooth] ? invoice[chosenTooth].cl : 25}}"></ion-range>
+        </ion-item>
+    </ion-list>
+    <ion-grid fixed>
+        <ion-row>
+            <ion-col>
+                <ion-button expand="full" color="success" (click)="save()">
+                    <ion-icon slot="start" name="save"></ion-icon>
+                    Save
+                </ion-button>
+            </ion-col>
+            <ion-col *ngIf="invoice[chosenTooth]">
+                <ion-button expand="full" color="warning" (click)="clean()">
+                <ion-icon slot="start" name="trash"></ion-icon>
+                Clean
+                </ion-button>
+            </ion-col>
+            <ion-col>
+                <ion-button expand="full" color="danger" (click)="dismiss()">
+                    <ion-icon slot="end" name="close"></ion-icon>
+                    Close
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

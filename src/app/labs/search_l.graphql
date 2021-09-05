@@ -1,0 +1,13 @@
+query search_lab($name: String!) {
+  allLab(searchByName: $name) {
+    edges{
+      node{
+        id
+        _id
+        relatedProfile{
+          firstName
+        }
+      }
+    }
+  }
+}

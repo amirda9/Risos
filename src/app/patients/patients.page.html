@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title
+      translate
+      class="ion-text-center"
+      style="margin-right: -2.2em; color: white"
+      translate
+      >My Patients</ion-title
+    >
+    <!-- <ion-buttons> -->
+    <ion-buttons slot="end">
+      <ion-button
+        color="light"
+        [routerLink]="['/create-patient']"
+        routerLinkActive="router-link-active"
+        router
+      >
+        <ion-icon name="person-add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <!-- </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row
+    class="ion-justify-content-center ion-padding-horizontal ion-padding-top"
+  >
+    <ion-col size="2" class="ion-text-center">
+      <ion-button (click)="search()" fill="clear" translate>Go</ion-button>
+    </ion-col>
+    <ion-col class="ion-no-padding" size="10" size-lg="8">
+      <ion-searchbar placeholder="Search Patient" [(ngModel)]="text">
+      </ion-searchbar>
+    </ion-col>
+  </ion-row>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+
+  <div *ngIf="!searched">
+    <ion-row
+      *ngFor="let item of patients | async"
+      class="ion-justify-content-center ion-padding-horizontal"
+    >
+      <ion-col class="ion-text-center" size="12" size-lg="8">
+        <app-p-card
+          firstname="{{item.node.relatedProfile.firstName}}"
+          lastname="{{item.node.relatedProfile.lastName}}"
+          img="{{item.node.relatedProfile.profilePic}}"
+          id="{{item.node.id}}"
+        ></app-p-card>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div *ngIf="searched">
+    <ion-row *ngFor="let item of patients | async" class="ion-justify-content-center ion-padding-horizontal">
+      <ion-col class="ion-text-center" size="12" size-lg="8">
+        <app-p-card
+          (click)="show(item.node.id)"
+          firstname="{{item.node.relatedProfile.firstName}}"
+          lastname="{{item.node.relatedProfile.lastName}}"
+          img="{{item.node.relatedProfile.profilePic}}"
+        ></app-p-card>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

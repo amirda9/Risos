@@ -1,0 +1,70 @@
+<ion-grid fixed>
+  <!-- <ion-row>
+    <button (click)="result()">Hello</button>
+  </ion-row> -->
+  <ion-row>
+      <!-- <ion-col size="6"> -->
+          <div id="container" class=""></div>
+      <!-- </ion-col> -->
+      <!-- <ion-col size="6">
+          <select name="cars" id="cars" (change)="result($event.target.value)">
+              <option *ngFor="let tooth of teeth; let i = index" value="{{i}}">{{i}}</option>
+            </select>
+      </ion-col> -->
+  </ion-row>
+  <ion-row class="ion-text-center ion-justify-content-center">
+    <ion-col size="3">
+      <ion-select [(ngModel)]="focus" (ionChange)="result($event)">
+        <ion-select-option *ngFor="let item of teeth; let i = index" value={{i}}>{{i}}</ion-select-option>
+        </ion-select>
+    </ion-col>
+  </ion-row>
+
+  <ion-row  class="ion-justify-content-center ion-padding-horizontal ion-padding-top">
+    <ion-col class="ion-text-center" size="10" size-lg="6">
+      <ion-button
+        (click)="finalize()"
+        shape="round"
+        style="
+          text-transform: none;
+          width: 100%;
+          color: black;
+          --background: #3abff8;
+          height: 2em;
+          font-size: 1em;
+          border-radius: 20px 20px 20px 20px;
+          border: 1px solid #e5e5ea;
+          box-shadow: 0px 1px 2px #000000;
+          font-weight: lighter;
+        "
+      translate>
+        Show Result
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row  class="ion-justify-content-center ion-padding-horizontal ">
+    <ion-col class="ion-text-center" size="10" size-lg="6">
+      <ion-button
+      [hidden]="status"
+        (click)="export()"
+        shape="round"
+        style="
+          text-transform: none;
+          width: 100%;
+          color: black;
+          --background: #73cf09;
+          height: 2em;
+          font-size: 1em;
+          border-radius: 20px 20px 20px 20px;
+          border: 1px solid #e5e5ea;
+          box-shadow: 0px 1px 2px #000000;
+          font-weight: lighter;
+        "
+      translate>
+        Go
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+

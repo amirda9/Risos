@@ -1,0 +1,5 @@
+mutation createpatient($Name:String!,$Pics:patientPics,$Phone_no:String!,$age:Int!,$id:Int!){
+  createPatient(name:$Name,profileDoctorId:$id , patientPics:$Pics , age:$age , phoneNumber : $Phone_no ){
+    token
+  }
+}

@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center" style="color: white" translate
+      >Forgot Password</ion-title
+    >
+    <!-- <ion-buttons> -->
+    <ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="login"></ion-back-button>
+    </ion-buttons>
+    <!-- </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="margin-top: 7em">
+    <ion-grid>
+      <ion-row
+        class="ion-justify-content-center ion-padding-horizontal"
+        style="padding-top: 0.3em"
+      >
+        <ion-col class="ion-text-center" size="10" size-md="10" size-lg="8">
+          <ion-label translate>
+            Please enter your phone number to receive verification code
+          </ion-label>
+        </ion-col>
+      </ion-row>
+
+      <ion-row
+        class="
+          ion-justify-content-center ion-padding-horizontal ion-padding-top
+        "
+      >
+        <ion-col class="ion-text-left" size="12" size-md="10" size-lg="8">
+          <ion-input [(ngModel)]="id" [placeholder]=Pntrans translate> </ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div class="footer">
+    <ion-row class="ion-justify-content-center ion-padding-horizontal">
+      <ion-col class="ion-text-center" size="12" size-lg="8">
+        <ion-button
+          (click)="forgetPass()"
+          shape="round"
+          style="
+            text-transform: none;
+            width: 100%;
+            color: black;
+            --background: #3abff8;
+          "
+        translate>
+          Submit
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

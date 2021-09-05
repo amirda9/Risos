@@ -1,0 +1,6 @@
+mutation req_otp($username:String!){
+  requestOtp(username:$username)
+  {
+    status
+  }
+}

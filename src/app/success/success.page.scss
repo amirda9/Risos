@@ -1,0 +1,53 @@
+.circle2 {
+	background: #00a750;
+	border-radius:50%;
+	color: #ffffff;
+	display:table;
+	height: 2em;
+	font-weight: bold;
+	font-size: 2em;
+	width: auto;
+	margin:0 auto;
+}
+.circle2 span {
+	display:table-cell;
+	vertical-align:middle;
+	height:5em;
+	width:5em;
+	text-align:center;
+}
+
+ion-toolbar{
+  --background:#6754a0;
+}
+
+ion-button{
+  width: 100%;
+  height:2em;
+  font-size: 1.2em;
+  border-radius: 20px 20px 20px 20px;
+  border:1px solid #e5e5ea;
+  box-shadow: 0px 1px 2px #000000;
+}
+
+.footer{
+  position: fixed;
+  bottom: 3em;
+  width: 100%;
+}
+
+
+ion-grid{
+  height: 100%;
+}
+ion-row{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // height: 100%;
+}
+
+
+ion-content{
+  --background:#f2f2f7;
+}

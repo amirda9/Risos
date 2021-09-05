@@ -1,0 +1,5 @@
+mutation ticket($text:String!,$order:Int!,$send:Int!,$receive:Int!){
+  createTicker(message:$text,relatedOrder:$order,receiverProfile:$receive,senderProfile:$send){
+    status
+  }
+}

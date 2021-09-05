@@ -1,0 +1,5 @@
+mutation delpatientpic($id:Int!,$selectedFields:patientPicsDeletion){
+  deletePatientPic(patientId:$id,selectedFields:$selectedFields){
+    status
+  }
+}

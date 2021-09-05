@@ -1,0 +1,9 @@
+query services{
+  allToothsevice{
+    edges{
+      node{
+        name
+      }
+    }
+  }
+}

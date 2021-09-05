@@ -1,0 +1,51 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { LabsGQL, LabsQuery, CreateOrderGQL } from 'src/generated/graphql';
+
+@Component({
+  selector: 'app-lab-c',
+  templateUrl: './lab-c.page.html',
+  styleUrls: ['./lab-c.page.scss'],
+})
+export class LabCPage implements OnInit {
+
+  s_id: any;
+  labs: Observable<LabsQuery['allLab']['edges']>;
+
+  constructor(private labsgql: LabsGQL, private route: ActivatedRoute, private router: Router, private ordergql: CreateOrderGQL) {
+    this.route.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.s_id = this.router.getCurrentNavigation().extras.state.s_id;
+        // console.log("here",this.s_id);
+      }
+    });
+  }
+
+  ngOnInit() {
+    this.labs = this.labsgql.watch().valueChanges.pipe(map(result => result.data.allLab.edges));
+  }
+
+
+  select(e) {
+    // console.log("select");
+    // console.log(typeof(this.s_id));
+    // console.log(e);
+    // var y: number = +this.s_id;
+    this.ordergql.mutate({
+      sid: this.s_id,
+      lid: e
+    }).subscribe(res => {
+      console.log(res.data.createOrder.order);
+      let navigationExtras: NavigationExtras = {
+        state: {
+          s_id: this.s_id
+        }
+      };
+      this.router.navigate(['/invoice'],navigationExtras)
+
+    });
+  }
+
+}

@@ -1,0 +1,5 @@
+mutation save_design($dr:Int!,$p_id:Int!,$images:SmileDesignImages,$model:String!,$color:String!){
+  updateSmileDesign(doctorId:$dr,patientId:$p_id,smileDesignImages:$images,smileCategory:$model,smileColor:$color){
+  status
+  }
+}

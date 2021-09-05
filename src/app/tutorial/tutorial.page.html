@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center" style="color: white" translate>Tutorial</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+  <div *ngIf="status">
+    <ion-row class="ion-padding">
+      <ion-col class="ion-text-center">
+        <video
+          autoplay
+          controls
+          src="http://risos.hadeth.ir/mediafiles/Log_in.mp4"
+          style="width: 40vh"
+        ></video>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-padding-horizontal">
+      <ion-col>
+        <h2 translate>Log in and Register</h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-padding-horizontal">
+      <ion-col>
+        <h4 style="color: #717171" translate>Introduction</h4>
+      </ion-col>
+    </ion-row>
+    <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+      <ion-fab-button color="light" (click)="change()">
+        <ion-icon name="arrow-forward-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </div>
+
+  <div *ngIf="!status">
+    <ion-row class="ion-padding">
+      <ion-col class="ion-text-center">
+        <video
+          autoplay
+          controls
+          src="http://risos.hadeth.ir/mediafiles/Smile.mp4"
+          style="width: 40vh"
+        ></video>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-padding-horizontal">
+      <ion-col>
+        <h2 translate>Smile Design</h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-padding-horizontal">
+      <ion-col>
+        <h4 style="color: #717171" translate>Introduction</h4>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  </div>
+
+
+</ion-content>

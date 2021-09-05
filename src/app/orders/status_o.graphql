@@ -1,0 +1,20 @@
+query orders_state($name:String!){
+  allOrder(statusStartwith:$name){
+    edges{
+      node{
+        _id
+        id
+        status
+        expectedDate
+        relatedService{
+          relatedPatient{
+            relatedProfile{
+              firstName
+              profilePic
+            }
+          }
+        }
+      }
+    }
+  }
+}

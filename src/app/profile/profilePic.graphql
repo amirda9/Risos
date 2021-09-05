@@ -1,0 +1,5 @@
+mutation profilePic($id:ID!,$profilePic:Upload){
+  updateProfile(profilePic:$profilePic,id:$id){
+  status
+  }
+}

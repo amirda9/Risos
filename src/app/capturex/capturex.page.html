@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="create-patient"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="color: white; text-align: center;" translate>
+      Camera Module
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ic">
+  <div id="cameraPreview" *ngIf="cameraActive" class="cameraPreview">
+    <ion-icon *ngIf="cameraActive" name="close" slot="start" id="close"></ion-icon>
+    <div style="font-size: 45px;">
+    <ion-icon *ngIf="cameraActive" size="large" name="square-outline" id="close" style="color:white; position: absolute; left:40%; top:30%;"></ion-icon>
+  </div>
+  </div>
+
+  <!-- <div id="cameraPreview" *ngIf="cameraActive" class="cameraPreview">
+
+  </div> -->
+  <ion-img *ngIf="myImage && !cameraActive" [src]="myImage"></ion-img>
+  <ion-button (click)="openCamera()" expand="full" *ngIf="!cameraActive && count===1" translate>
+    Open Camera
+  </ion-button>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col *ngIf="(cameraActive && count > 1) || count==6">
+        <ion-button color="success" (click)="submit()" expand="full"translate>Submit Images</ion-button>
+      </ion-col>
+      <ion-col *ngIf="count!=5">
+        <ion-button color="primary" (click)="captureCamera()" expand="full" *ngIf="cameraActive && count!=5" translate>
+          Take
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col>
+        <ion-button color="success" *ngIf="myImage && !cameraActive && count!=6" (click)="saveImage()" expand="full" translate>
+          Save</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button color="danger" *ngIf="myImage && !cameraActive && count!=6" (click)="redoImage()" expand="full" translate>Try Again</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

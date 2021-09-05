@@ -1,0 +1,7 @@
+mutation register($username:String! , $password:String!,$email:String!)
+{
+  createUser(username:$username,password:$password,email:$email)
+  {
+    token
+  }
+}

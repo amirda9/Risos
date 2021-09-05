@@ -1,0 +1,19 @@
+query patient($id:ID!){
+  Patient(id:$id){
+    _id
+    patientPic{
+          sideImage
+          fullSmileImage
+          optionalImage
+          smileImage
+    }
+    relatedProfile{
+    firstName
+    lastName
+      profilePic
+      _id
+    age
+    phoneNumber
+    }
+  }
+}

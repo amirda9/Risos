@@ -1,0 +1,5 @@
+mutation update_pic($id:Int!,$pics:patientPics!){
+  updatePatientPic(patientId:$id,patientPics:$pics){
+    status
+  }
+}

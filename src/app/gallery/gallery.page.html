@@ -1,0 +1,118 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center" style="color: white" translate
+      >Gallery</ion-title
+    >
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="ion-padding">
+    <ion-col class="ion-text-center" size="6">
+      <!-- <ion-label> Smile Image</ion-label> -->
+      <ion-slide>
+        <input id="getFile" type="file" style="display: none" accept="image/png, image/jpg, image/jpeg" (change)="fileChangeEvent($event)" />
+        <img
+          src="https://api.risos.co/mediafiles/{{fullimg}}"
+          style="height: 20vh"
+          onclick="document.getElementById('getFile').click()"
+        />
+        <ngx-photo-editor [imageChanedEvent]="imageChangedEvent" (imageCropped)="imageCropped($event)"
+                 [viewMode]="3" ></ngx-photo-editor>
+        <div class="my_Overlay">
+          <ion-label translate> Frontal Image</ion-label>
+          <br>
+          <ion-label translate (click)="confirm(1)" style="color: red;">Delete</ion-label>
+        </div>
+      </ion-slide>
+    </ion-col>
+
+    <ion-col class="ion-text-center" size="6">
+      <!-- <ion-label> Smile Image</ion-label> -->
+      <ion-slide>
+        <input id="getFile2" type="file" style="display: none" accept="image/png, image/jpg, image/jpeg" (change)="fileChangeEvent2($event)" />
+        <img
+          src="https://api.risos.co/mediafiles/{{smileimg}}"
+          style="height: 20vh"
+          onclick="document.getElementById('getFile2').click()"
+        />
+        <ngx-photo-editor [imageChanedEvent]="imageChangedEvent2" (imageCropped)="imageCropped2($event)"
+                 [viewMode]="3" ></ngx-photo-editor>
+        <div class="my_Overlay">
+          <ion-label translate> Smile Image</ion-label>
+          <br>
+          <ion-label translate (click)="confirm(2)" style="color: red;">Delete</ion-label>
+        </div>
+      </ion-slide>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-padding">
+    <ion-col class="ion-text-center" size="6">
+      <ion-slide>
+        <input id="getFile3" type="file" style="display: none" accept="image/png, image/jpg, image/jpeg" (change)="fileChangeEvent3($event)" />
+        <img
+          src="https://api.risos.co/mediafiles/{{sideimg}}"
+          style="height: 20vh"
+          onclick="document.getElementById('getFile3').click()"
+        />
+        <ngx-photo-editor [imageChanedEvent]="imageChangedEvent3" (imageCropped)="imageCropped3($event)"
+                 [viewMode]="3" ></ngx-photo-editor>
+        <div class="my_Overlay">
+          <ion-label translate> Side Image</ion-label>
+          <br>
+          <ion-label translate (click)="confirm(3)" style="color: red;">Delete</ion-label>
+        </div>
+      </ion-slide>
+    </ion-col>
+
+    <ion-col class="ion-text-center" size="6">
+      <!-- <ion-label > Optional Image</ion-label> -->
+      <ion-slide>
+        <input id="getFile4" type="file" style="display: none" accept="image/png, image/jpg, image/jpeg" (change)="fileChangeEvent4($event)" />
+        <img
+          src="https://api.risos.co/mediafiles/{{optimg}}"
+          style="height: 20vh"
+          onclick="document.getElementById('getFile4').click()"
+        />
+        <ngx-photo-editor [imageChanedEvent]="imageChangedEvent4" (imageCropped)="imageCropped4($event)"
+                 [viewMode]="3" ></ngx-photo-editor>
+        <div class="my_Overlay">
+          <ion-label translate> Optional Image</ion-label>
+          <br>
+          <ion-label translate (click)="confirm(4)" style="color: red;">Delete</ion-label>
+        </div>
+      </ion-slide>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-padding">
+    <ion-col class="ion-text-center" size="6">
+      <ion-slide>
+        <img
+          src="https://api.risos.co/mediafiles/{{sideimg}}"
+          style="height: 20vh"
+          onclick="document.getElementById('getFile3').click()"
+        />
+        <div class="my_Overlay">
+          <ion-label style="margin-bottom: -1em" translate>
+            Smile Design 1</ion-label
+          >
+        </div>
+      </ion-slide>
+    </ion-col>
+
+    <ion-col class="ion-text-center" size="6">
+      <!-- <ion-label > Optional Image</ion-label> -->
+      <ion-slide>
+        <img
+          src="https://api.risos.co/mediafiles/{{optimg}}"
+          style="height: 20vh"
+        />
+        <div class="my_Overlay">
+          <ion-label translate> Smile Design 2</ion-label>
+        </div>
+      </ion-slide>
+    </ion-col>
+  </ion-row>
+</ion-content>

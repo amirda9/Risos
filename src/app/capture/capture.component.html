@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Capacitor PWA
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ic">
+  <!-- <ion-button (click)="takePicture()" expand="block">
+    <ion-icon name="camera" slot="start"></ion-icon>
+    Capture image
+  </ion-button> -->
+  <div id="cameraPreview" class="cameraPreview">
+    <ion-icon *ngIf="cameraActive" name="close" slot="start" id="close"></ion-icon>
+  </div>
+  <ion-button (click)="openCamera()" expand="full" *ngIf="!cameraActive">
+    openCamera
+  </ion-button>
+  <ion-button (click)="captureCamera()" expand="full" *ngIf="cameraActive">
+    take A pick
+  </ion-button>
+  <ion-img *ngIf="myImage && !cameraActive" [src]="myImage"></ion-img>
+</ion-content>

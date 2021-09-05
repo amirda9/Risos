@@ -1,0 +1,20 @@
+query orders_l($dr:[String],$lab:[String]){
+  allOrder(doctorId:$dr,finalizedLab_In:$lab){
+    edges{
+      node{
+        _id
+        id
+        status
+        expectedDate
+        relatedService{
+          relatedPatient{
+            relatedProfile{
+              firstName
+              profilePic
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+mutation invoice($s_id:ID!,$teeth:JSONString!,$central:String!){
+  toothMutationJson(relatedService:$s_id,jsonObject:$teeth,centralSize:$central){
+    status
+  }
+}

@@ -1,0 +1,7 @@
+mutation createOrder($sid:ID!,$lid:ID!,$date:Date){
+  createOrder(input:{relatedService:$sid,finalizedLab:$lid , status:"sent",expectedDate:$date}){
+    order{
+    id
+    }
+  }
+}

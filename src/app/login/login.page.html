@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title
+      class="ion-text-center"
+      style="color: white;"
+      translate>Log in</ion-title
+    >
+    <ion-buttons slot="start">
+      <ion-back-button
+        color="light"
+        defaultHref="home"
+      ></ion-back-button>
+    </ion-buttons>
+    <!-- <ion-buttons> -->
+
+    <!-- </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="margin-top: 7em">
+    <ion-grid>
+      <ion-row class="ion-justify-content-center ion-padding-horizontal">
+        <ion-col class="ion-text-left" size="12" size-lg="8">
+          <ion-input [(ngModel)]="id" [placeholder]=keyTranslated> </ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row
+        class="ion-justify-content-center ion-padding-horizontal"
+        style="padding-top: 0.3em"
+      >
+        <ion-col class="ion-text-left" size="12" size-lg="8">
+          <ion-input
+            shape="round"
+            [(ngModel)]="pass"
+            [placeholder]=passTranslated
+            [type]="'password'"
+            (keyup.enter)="confirm()"
+          >
+          </ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row
+        class="ion-justify-content-center ion-padding-horizontal"
+        style="padding-bottom: 1em"
+      >
+        <ion-col class="ion-text-left">
+          <ion-label (click)="forget()" style="font-size: 0.8em; color: #3eb5df; padding-left: 0.5em;" translate>
+            Forgot password?
+          </ion-label>
+        </ion-col>
+      </ion-row>
+
+      <div class="footer">
+        <ion-row class="ion-justify-content-center ion-padding-horizontal">
+          <ion-col class="ion-text-center" size="12" size-lg="8">
+            <ion-button
+              (click)="confirm()"
+              shape="round"
+              style="width: 100%; color: black; --background: #3abff8; text-transform: none;"
+            translate>
+              Log in
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-grid>
+  </div>
+</ion-content>

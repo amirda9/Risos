@@ -1,0 +1,13 @@
+query labs{
+  allLab{
+    edges{
+      node{
+        id
+        _id
+        relatedProfile{
+          firstName
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="color: white;" translate>Notifications</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-row style="padding-top: 3em;" class="ion-padding">
+    <ion-col >
+      <!-- <ion-item> -->
+        <ion-label style="color: #0000ff;" translate>
+          Arman Laboratory
+        </ion-label>
+        <ion-label translate>
+          has changed order state
+        </ion-label>
+      <!-- </ion-item> -->
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-padding">
+    <ion-col>
+      <!-- <ion-item> -->
+        <ion-label style="color: #0000ff;" translate>
+          Sevil Pishahang
+        </ion-label>
+        <ion-label translate>
+          needs to be submiited
+        </ion-label>
+      <!-- </ion-item> -->
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-padding" *ngFor="let notif of notifs | async">
+    <ion-col>
+      <!-- <ion-item> -->
+        <ion-label style="color: #0000ff;" translate>
+          {{notif.node.message}}
+        </ion-label>
+        <!-- <ion-label translate>
+          needs to be submiited
+        </ion-label> -->
+      <!-- </ion-item> -->
+    </ion-col>
+  </ion-row>
+
+</ion-content>

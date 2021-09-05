@@ -1,0 +1,7 @@
+mutation service($p_id:ID!,$d_id:ID!){
+  createService(input:{relatedPatient:$p_id,relatedDoctor:$d_id}){
+    service{
+      id
+    }
+  }
+}
