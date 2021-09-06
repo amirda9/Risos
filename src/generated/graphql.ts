@@ -899,10 +899,10 @@ export enum NotificationNotifServiceObjectTypeChoices {
 
 /** An enumeration. */
 export enum NotificationNotificationStatusChoices {
-  /** FAILED */
-  Failed = 'FAILED',
   /** SUCCESS */
-  Success = 'SUCCESS'
+  Success = 'SUCCESS',
+  /** FAILED */
+  Failed = 'FAILED'
 }
 
 export type Otp = ExtendProfileNode & {
@@ -2932,7 +2932,10 @@ export type OrderQuery = (
           ) }
         )> }
       )>> }
-    ), relatedService?: Maybe<(
+    ), invoice?: Maybe<(
+      { __typename?: 'InvoiceType' }
+      & Pick<InvoiceType, 'price' | 'description' | 'actualDate'>
+    )>, relatedService?: Maybe<(
       { __typename?: 'ServiceType' }
       & { relatedPatient: (
         { __typename?: 'PatientType' }
@@ -2942,6 +2945,20 @@ export type OrderQuery = (
         ) }
       ) }
     )> }
+  )> }
+);
+
+export type UpdateOrderMutationVariables = Exact<{
+  id: Scalars['ID'];
+  status?: Maybe<Scalars['String']>;
+}>;
+
+
+export type UpdateOrderMutation = (
+  { __typename?: 'Mutations' }
+  & { updateOrder?: Maybe<(
+    { __typename?: 'UpdateOrder' }
+    & Pick<UpdateOrder, 'status'>
   )> }
 );
 
@@ -3705,6 +3722,11 @@ export const OrderDocument = gql`
         }
       }
     }
+    invoice {
+      price
+      description
+      actualDate
+    }
     expectedDate
     relatedService {
       relatedPatient {
@@ -3724,6 +3746,24 @@ export const OrderDocument = gql`
   })
   export class OrderGQL extends Apollo.Query<OrderQuery, OrderQueryVariables> {
     document = OrderDocument;
+    
+    constructor(apollo: Apollo.Apollo) {
+      super(apollo);
+    }
+  }
+export const UpdateOrderDocument = gql`
+    mutation UpdateOrder($id: ID!, $status: String) {
+  updateOrder(status: $status, orderId: $id) {
+    status
+  }
+}
+    `;
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class UpdateOrderGQL extends Apollo.Mutation<UpdateOrderMutation, UpdateOrderMutationVariables> {
+    document = UpdateOrderDocument;
     
     constructor(apollo: Apollo.Apollo) {
       super(apollo);

@@ -1,32 +1,42 @@
-query order($id:ID!){
-  Order(id:$id){
+query order($id: ID!) {
+  Order(id: $id) {
     id
     status
     finalizedLab {
-      relatedProfile{
+      relatedProfile {
         firstName
       }
     }
-    ticketSet{
-      edges{
-        node{
+    ticketSet {
+      edges {
+        node {
           id
           message
-          sender{
+          sender {
             _id
           }
         }
       }
     }
+    invoice {
+      price
+      description
+      actualDate
+    }
     expectedDate
-    relatedService{
-      relatedPatient{
-        relatedProfile{
-              firstName
-              lastName
-              profilePic
-            }
+    relatedService {
+      relatedPatient {
+        relatedProfile {
+          firstName
+          lastName
+          profilePic
+        }
       }
     }
+  }
+}
+mutation UpdateOrder($id: ID!, $status: String) {
+  updateOrder(status: $status, orderId: $id) {
+    status
   }
 }

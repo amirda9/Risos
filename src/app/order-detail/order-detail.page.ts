@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import {OrderGQL, OrderQuery} from '../../generated/graphql';
+import {OrderGQL, OrderQuery,UpdateOrderGQL} from '../../generated/graphql';
 
 @Component({
   selector: 'app-order-detail',
@@ -15,8 +15,12 @@ export class OrderDetailPage implements OnInit {
   id:string;
   Type:string;
   Desc:string;
-
-  constructor(private route: ActivatedRoute, private router: Router, private ordergql:OrderGQL) {
+  Invoice: {
+    price: number,
+    description: string,
+    actualDate: string,
+  }
+  constructor(private route: ActivatedRoute, private router: Router, private ordergql:OrderGQL, private updateOrderGQL:UpdateOrderGQL) {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.id = this.router.getCurrentNavigation().extras.state.id;
@@ -29,6 +33,11 @@ export class OrderDetailPage implements OnInit {
           this.Lab = res.data.Order.finalizedLab.relatedProfile.firstName;
           this.Type = res.data.Order.status;
           // console.log("p_detail - _id");
+          if(res.data.Order.status==="PROCESSING_INVOICE_READY"){
+            console.log(res.data.Order.invoice.price);
+            this.Invoice = {price:res.data.Order.invoice.price, description:res.data.Order.invoice.description, actualDate:res.data.Order.invoice.actualDate.slice(0,10)};
+            console.log(this.Invoice);
+          }
           console.log(this.Name)
         })
       }
@@ -39,7 +48,15 @@ export class OrderDetailPage implements OnInit {
     // this.Delivery = this.Delivery.slice(0,10);
   }
 
-
+  updateOrderStatus (type:string){
+    this.updateOrderGQL.mutate({
+      id:this.id,
+      status:type
+    }).subscribe(res=>{
+      console.log(res);
+    })
+    this.router.navigate(['/orders']);
+  }
   contact(){
     this.router.navigate(['/contact-lab']);
   }

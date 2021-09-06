@@ -138,6 +138,20 @@
       </ion-input>
     </ion-col>
   </ion-row>
+  <ion-row *ngIf="Type ==='PROCESSING_INVOICE_READY'">
+    <ion-col size="12">{{Invoice.price}}</ion-col>
+    <ion-col size="12">{{Invoice.description}}</ion-col>
+    <ion-col size="12">{{Invoice.actualDate}}</ion-col>
+    <ion-button (click)="updateOrderStatus('PROCESSING_ACCEPT')" expand="block" fill="clear" shape="round">
+      Accept
+    </ion-button>
+    <ion-button (click)="updateOrderStatus('PROCESSING_REJECT_AND_RESEND')" expand="block" fill="clear" shape="round">
+      Resend
+    </ion-button>
+    <ion-button (click)="updateOrderStatus('PROCESSING_REJECT')" expand="block" fill="clear" shape="round">
+      Reject
+    </ion-button>
+  </ion-row>
   <!-- <div class="footer"> -->
   <ion-row
     style="padding-top: 4em"
