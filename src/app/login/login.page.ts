@@ -67,13 +67,6 @@ export class LoginPage implements OnInit {
                 console.log(res.data.createDevice.status)
               })
             }
-            // let a = next.data.tokenAuth.payload;
-            // let b = JSON.stringify(a);
-            // let c = JSON.parse(b);
-            // this.username = c.username ;
-            // this.authService.saveUserData(this.token);
-            // console.log(localStorage.getItem('AUTHTOKEN'));
-            // console.log(this.token);
             loading.dismiss()
             this.router.navigate(['/tabs/main']);
             // console.log(this.username)

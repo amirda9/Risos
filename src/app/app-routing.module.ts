@@ -155,6 +155,10 @@ const routes: Routes = [
     path: 'labs-choose',
     loadChildren: () => import('./labs-choose/labs-choose.module').then( m => m.LabsChoosePageModule)
   },
+  {
+    path: 'map',
+    loadChildren: () => import('./map/map.module').then( m => m.MapPageModule)
+  },
 ];
 
 @NgModule({

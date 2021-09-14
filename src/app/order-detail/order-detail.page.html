@@ -106,16 +106,17 @@
     </ion-col>
   </ion-row>
   <ion-item style="display: none">
-    <ion-datetime
+    <!-- <ion-datetime
       id="date"
       displayFormat="MM/DD/YYYY"
       min="1994-03-14"
       max="2012-12-09"
       value="2002-09-23T15:03:46.789"
-    ></ion-datetime>
+    ></ion-datetime> -->
+    <ion-input *ngIf="Type ==='PROCESSING_INVOICE_READY'" style="height: 5em; z-index: 1" [(ngModel)]="Invoice.actualDate"></ion-input>
   </ion-item>
 
-  <ion-row
+  <ion-row *ngIf="Type ==='PROCESSING_INVOICE_READY'"
     class="ion-justify-content-center ion-padding-horizontal ion-padding-top"
   >
     <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
@@ -133,28 +134,78 @@
           Description
         </ion-label>
       </ion-row>
-      <ion-input style="height: 5em; z-index: 1" [(ngModel)]="Desc">
+      <ion-input *ngIf="Type ==='PROCESSING_INVOICE_READY'" style="height: 5em; z-index: 1" [(ngModel)]="Invoice.description">
         <!-- Sevil pishahang -->
       </ion-input>
     </ion-col>
   </ion-row>
-  <ion-row *ngIf="Type ==='PROCESSING_INVOICE_READY'">
-    <ion-col size="12">{{Invoice.price}}</ion-col>
-    <ion-col size="12">{{Invoice.description}}</ion-col>
-    <ion-col size="12">{{Invoice.actualDate}}</ion-col>
-    <ion-button (click)="updateOrderStatus('PROCESSING_ACCEPT')" expand="block" fill="clear" shape="round">
+  <ion-row *ngIf="Type ==='PROCESSING_INVOICE_READY'"
+    class="ion-justify-content-center ion-padding-horizontal ion-padding-top"
+  >
+    <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
+      <ion-row style="margin-bottom: -0.6em">
+        <ion-label
+          class="ion-padding-horizontal ion-no-padding"
+          style="
+            padding-right: 4px;
+            color: #bb5feb;
+            background: #f2f2f7;
+            z-index: 2;
+          "
+
+        translate>
+          Price
+        </ion-label>
+      </ion-row>
+      <ion-input  style="z-index: 1" [(ngModel)]="Invoice.price">
+        <!-- Sevil pishahang -->
+      </ion-input>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-padding-top" *ngIf="Type ==='PROCESSING_INVOICE_READY'">
+    <!-- <ion-col size="12">{{Invoice.price}}</ion-col> -->
+    <!-- <ion-col size="12">{{Invoice.description}}</ion-col> -->
+    <!-- <ion-col size="12">{{Invoice.actualDate}}</ion-col> -->
+    <ion-col size="4">
+    <ion-button (click)="updateOrderStatus('PROCESSING_ACCEPT')" expand="block" fill="clear" shape="round" style="color: black;
+    --background: #3abff8;
+    height: 2em;
+    font-size: 1em;
+    border-radius: 20px 20px 20px 20px;
+    border: 1px solid #e5e5ea;
+    box-shadow: 0px 1px 2px #000000;
+    font-weight: lighter;">
       Accept
     </ion-button>
-    <ion-button (click)="updateOrderStatus('PROCESSING_REJECT_AND_RESEND')" expand="block" fill="clear" shape="round">
+  </ion-col>
+  <ion-col size="4">
+    <ion-button (click)="updateOrderStatus('PROCESSING_REJECT_AND_RESEND')" expand="block" fill="clear" shape="round" style="color: black;
+    --background: #3abff8;
+    height: 2em;
+    font-size: 1em;
+    border-radius: 20px 20px 20px 20px;
+    border: 1px solid #e5e5ea;
+    box-shadow: 0px 1px 2px #000000;
+    font-weight: lighter;">
       Resend
     </ion-button>
-    <ion-button (click)="updateOrderStatus('PROCESSING_REJECT')" expand="block" fill="clear" shape="round">
+  </ion-col>
+  <ion-col size="4">
+    <ion-button (click)="updateOrderStatus('PROCESSING_REJECT')" expand="block" fill="clear" shape="round" style="color: black;
+    --background: #3abff8;
+    height: 2em;
+    font-size: 1em;
+    border-radius: 20px 20px 20px 20px;
+    border: 1px solid #e5e5ea;
+    box-shadow: 0px 1px 2px #000000;
+    font-weight: lighter;">
       Reject
     </ion-button>
+  </ion-col>
   </ion-row>
   <!-- <div class="footer"> -->
   <ion-row
-    style="padding-top: 4em"
+    style="padding-top: 2em"
     class="ion-justify-content-center ion-padding-horizontal"
   >
     <ion-col class="ion-text-center" size="8" size-lg="8">

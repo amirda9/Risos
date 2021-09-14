@@ -34,7 +34,6 @@ export class AuthService {
 
   setusername(username: string) {
     this.username = username;
-
     this._isAuthenticated.next(true);
   }
 

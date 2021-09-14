@@ -33,6 +33,7 @@ export class PDetailPage implements OnInit {
   age:number;
   detail:string;
 
+  edit:boolean=true;
 
   constructor(private servicegql:ServiceGQL,private dataService:DataService,private alertcontroller:AlertController, private smile_design: AllsmileGQL, private route: ActivatedRoute, private router: Router, private loadingcontroller: LoadingController, private patientgql: PatientGQL, private pro_picgql: ProfilePicGQL) {
     this.route.queryParams.subscribe(params => {

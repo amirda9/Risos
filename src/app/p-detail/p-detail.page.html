@@ -60,7 +60,7 @@
                 First name
               </ion-label>
             </ion-row>
-            <ion-input style="z-index: 1;" [(ngModel)]="name">
+            <ion-input [disabled]="edit" style="z-index: 1;" [(ngModel)]="name">
             </ion-input>
           </ion-col>
         </ion-row>
@@ -85,7 +85,7 @@
                 Last name
               </ion-label>
             </ion-row>
-            <ion-input style="z-index: 1;" [(ngModel)]="last" >
+            <ion-input [disabled]="edit" style="z-index: 1;" [(ngModel)]="last" >
             </ion-input>
           </ion-col>
         </ion-row>
@@ -111,7 +111,7 @@
             Mobile number
           </ion-label>
         </ion-row>
-        <ion-input style="z-index: 1;" [(ngModel)]="mobile" >
+        <ion-input [disabled]="edit" style="z-index: 1;" [(ngModel)]="mobile" >
         </ion-input>
       </ion-col>
     </ion-row>
@@ -136,7 +136,7 @@
             Age
           </ion-label>
         </ion-row>
-        <ion-input style="z-index: 1;" [(ngModel)]="age" >
+        <ion-input [disabled]="edit" style="z-index: 1;" [(ngModel)]="age" >
         </ion-input>
       </ion-col>
     </ion-row>
@@ -161,7 +161,7 @@
             Address
           </ion-label>
         </ion-row>
-        <ion-input style="height: 4em; z-index: 1;" [(ngModel)]="address" placeholder="Valiasr Sq - Tehran ">
+        <ion-input [disabled]="edit" style="height: 4em; z-index: 1;" [(ngModel)]="address" placeholder="Valiasr Sq - Tehran ">
         </ion-input>
       </ion-col>
     </ion-row>
@@ -186,7 +186,7 @@
             Detail
           </ion-label>
         </ion-row>
-        <ion-input style="z-index: 1;" [(ngModel)]="detail" >
+        <ion-input [disabled]="edit" style="z-index: 1;" [(ngModel)]="detail" >
         </ion-input>
       </ion-col>
     </ion-row>

@@ -16,7 +16,6 @@ import { TranslateModule } from '@ngx-translate/core';
     IonicModule,
     ComparisonPageRoutingModule,
     TranslateModule
-
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   declarations: [ComparisonPage]
