@@ -1,0 +1,5 @@
+mutation loc($long:Float!,$lat:Float!,$profileId:Int!){
+  locationMutation(latitude:$lat,longitude:$long,profileId:$profileId){
+    status
+  }
+}

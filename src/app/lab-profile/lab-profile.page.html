@@ -4,10 +4,7 @@
       Laboratory
     </ion-title>
     <ion-buttons slot="start">
-      <ion-back-button
-        color="light"
-        defaultHref="tabs/labs"
-      ></ion-back-button>
+      <ion-back-button color="light" defaultHref="tabs/labs"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -16,7 +13,10 @@
   <div>
     <ion-row
       style="padding-top: 2em"
-      class="ion-justify-content-center ion-padding-horizontal ion-padding-top vertical-align-content"
+      class="
+        ion-justify-content-center ion-padding-horizontal ion-padding-top
+        vertical-align-content
+      "
     >
       <ion-col size="5">
         <ion-row class="ion-justify-content-center">
@@ -48,7 +48,8 @@
                   background: #f2f2f7;
                   z-index: 2;
                 "
-              translate>
+                translate
+              >
                 Laboratory name
               </ion-label>
             </ion-row>
@@ -58,7 +59,9 @@
       </ion-col>
     </ion-row>
     <ion-row
-      class="ion-justify-content-center ion-padding-horizontal ion-padding-vertical"
+      class="
+        ion-justify-content-center ion-padding-horizontal ion-padding-vertical
+      "
     >
       <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
         <ion-row style="margin-bottom: -0.6em">
@@ -73,7 +76,8 @@
               background: #f2f2f7;
               z-index: 2;
             "
-          translate>
+            translate
+          >
             {{phone_no}}
           </ion-label>
         </ion-row>
@@ -87,7 +91,9 @@
     </ion-row>
 
     <ion-row
-      class="ion-justify-content-center ion-padding-horizontal ion-padding-vertical"
+      class="
+        ion-justify-content-center ion-padding-horizontal ion-padding-vertical
+      "
     >
       <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
         <ion-row style="margin-bottom: -0.6em">
@@ -102,7 +108,8 @@
               background: #f2f2f7;
               z-index: 2;
             "
-          translate>
+            translate
+          >
             {{land_no}}
           </ion-label>
         </ion-row>
@@ -124,7 +131,9 @@
     </ion-row> -->
 
     <ion-row
-      class="ion-justify-content-center ion-padding-horizontal ion-padding-vertical"
+      class="
+        ion-justify-content-center ion-padding-horizontal ion-padding-vertical
+      "
     >
       <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
         <ion-row style="margin-bottom: -0.6em">
@@ -139,7 +148,8 @@
               background: #f2f2f7;
               z-index: 2;
             "
-          translate>
+            translate
+          >
             Address
           </ion-label>
         </ion-row>
@@ -153,7 +163,9 @@
     </ion-row>
 
     <ion-row
-      class="ion-justify-content-center ion-padding-horizontal ion-padding-vertical"
+      class="
+        ion-justify-content-center ion-padding-horizontal ion-padding-vertical
+      "
     >
       <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
         <ion-row style="margin-bottom: -0.6em">
@@ -168,7 +180,8 @@
               background: #f2f2f7;
               z-index: 2;
             "
-         translate >
+            translate
+          >
             Detail
           </ion-label>
         </ion-row>
@@ -188,53 +201,72 @@
 </ion-row>
   </div> -->
 
-  <div class="footer">
-    <ion-row class="ion-justify-content-center ion-padding-horizontal">
-      <ion-col class="ion-text-center" size="12" size-lg="8">
-        <ion-button
-          (click)="order()"
-          shape="round"
-          style="
-            text-transform: none;
-            width: 100%;
-            color: black;
-            --background: #3abff8;
-            height: 2em;
-            font-size: 1em;
-            border-radius: 20px 20px 20px 20px;
-            border: 1px solid #e5e5ea;
-            box-shadow: 0px 1px 2px #000000;
-            font-weight: lighter;
-          "
-        translate>
-          Order
-        </ion-button>
-      </ion-col>
-    </ion-row>
-    <ion-row class="ion-justify-content-center ion-padding-horizontal">
-      <ion-col size="6">
-        <ion-button
-          shape="round"
-          (click)="labOrders()"
-          style="color: black; --background: #ffffff"
-          translate>
-          <ion-label style="font-size: 0.5em; ">
-          Laboratory Orders
-          </ion-label>
-        </ion-button>
-      </ion-col>
-      <ion-col size="6">
-        <ion-button
-          shape="round"
-          (click)="gallery()"
-          style="color: black; --background: #ffffff"
-          translate>
-          <ion-label style="font-size: 0.5em; ">
-            Gallery
-            </ion-label>
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  </div>
+    <div class="footer">
+      <ion-row class="ion-padding-horizontal">
+        <ion-col class="ion-text-center">
+          <ion-button
+            style="
+              text-transform: none;
+              width: 100%;
+              color: black;
+              --background: #3abff8;
+              height: 2em;
+              font-size: 1em;
+              border-radius: 20px 20px 20px 20px;
+              border: 1px solid #e5e5ea;
+              box-shadow: 0px 1px 2px #000000;
+              font-weight: lighter;
+            "
+            (click)="getPosition()"
+            >Get Location</ion-button
+          >
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-justify-content-center ion-padding-horizontal">
+        <ion-col class="ion-text-center" size="12" size-lg="8">
+          <ion-button
+            (click)="order()"
+            shape="round"
+            style="
+              text-transform: none;
+              width: 100%;
+              color: black;
+              --background: #3abff8;
+              height: 2em;
+              font-size: 1em;
+              border-radius: 20px 20px 20px 20px;
+              border: 1px solid #e5e5ea;
+              box-shadow: 0px 1px 2px #000000;
+              font-weight: lighter;
+            "
+            translate
+          >
+            Order
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-justify-content-center ion-padding-horizontal">
+        <ion-col size="6">
+          <ion-button
+            shape="round"
+            (click)="labOrders()"
+            style="color: black; --background: #ffffff"
+            translate
+          >
+            <ion-label style="font-size: 0.5em"> Laboratory Orders </ion-label>
+          </ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button
+            shape="round"
+            (click)="gallery()"
+            style="color: black; --background: #ffffff"
+            translate
+          >
+            <ion-label style="font-size: 0.5em"> Gallery </ion-label>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
   </div>
 </ion-content>

@@ -3,5 +3,6 @@ query profile($id:ID!){
     id
     phoneNumber
     email
+    profilePic
   }
 }

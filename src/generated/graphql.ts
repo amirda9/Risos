@@ -313,6 +313,40 @@ export type DoctorEdge = {
   cursor: Scalars['String'];
 };
 
+export type DoctorNode = {
+  __typename?: 'DoctorNode';
+  id: Scalars['ID'];
+  relatedProfile: Profile;
+  rating: Scalars['Float'];
+  rateSize: Scalars['Int'];
+  createdAt: Scalars['DateTime'];
+  updatedAt: Scalars['DateTime'];
+  smileDesigns: SmileDesignServiceConnection;
+  patientSet: Array<PatientType>;
+  services: Array<ServiceType>;
+};
+
+
+export type DoctorNodeSmileDesignsArgs = {
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['String']>;
+  after?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  service_In?: Maybe<Array<Maybe<Scalars['String']>>>;
+  id_In?: Maybe<Array<Maybe<Scalars['String']>>>;
+  createdAt_In?: Maybe<Array<Maybe<Scalars['DateTime']>>>;
+  updatedAt_In?: Maybe<Array<Maybe<Scalars['DateTime']>>>;
+  relatedSmileColor_In?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  relatedSmileCategory_In?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  patient_In?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  doctor_In?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  status_In?: Maybe<Array<Maybe<Scalars['String']>>>;
+  shape_In?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  width_In?: Maybe<Array<Maybe<Scalars['Int']>>>;
+  heigth_In?: Maybe<Array<Maybe<Scalars['Int']>>>;
+};
+
 export type ErrorType = {
   __typename?: 'ErrorType';
   field: Scalars['String'];
@@ -485,6 +519,18 @@ export type LabEdge = {
   cursor: Scalars['String'];
 };
 
+export type LabNode = {
+  __typename?: 'LabNode';
+  id: Scalars['ID'];
+  relatedProfile: Profile;
+  createdAt: Scalars['DateTime'];
+  updatedAt: Scalars['DateTime'];
+  rating: Scalars['Float'];
+  rateSize: Scalars['Int'];
+  orderSet: Array<OrderType>;
+  labPics?: Maybe<LabPic>;
+};
+
 export type LabPic = BusinessLogicNode & {
   __typename?: 'LabPic';
   /** The ID of the object */
@@ -492,7 +538,7 @@ export type LabPic = BusinessLogicNode & {
   createdAt?: Maybe<Scalars['DateTime']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
   pic?: Maybe<Scalars['String']>;
-  lab: Lab;
+  lab: LabNode;
   number?: Maybe<Scalars['Int']>;
   _id?: Maybe<Scalars['Int']>;
 };
@@ -518,6 +564,11 @@ export type LabPicEdge = {
 
 export type LabPicMutation = {
   __typename?: 'LabPicMutation';
+  status?: Maybe<Scalars['String']>;
+};
+
+export type LocationMutation = {
+  __typename?: 'LocationMutation';
   status?: Maybe<Scalars['String']>;
 };
 
@@ -578,6 +629,7 @@ export type Mutations = {
   updateProfile?: Maybe<UpdateProfile>;
   changePassword?: Maybe<ChangePassword>;
   forgetPass?: Maybe<ForgetPass>;
+  locationMutation?: Maybe<LocationMutation>;
 };
 
 
@@ -612,9 +664,10 @@ export type MutationsCreatePatientArgs = {
   description?: Maybe<Scalars['String']>;
   email?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
+  password?: Maybe<Scalars['String']>;
   patientPics?: Maybe<PatientPics>;
   phoneNumber: Scalars['String'];
-  profileDoctorId: Scalars['Int'];
+  profileDoctorId?: Maybe<Scalars['Int']>;
 };
 
 
@@ -753,6 +806,13 @@ export type MutationsChangePasswordArgs = {
 
 export type MutationsForgetPassArgs = {
   phoneNumber: Scalars['String'];
+};
+
+
+export type MutationsLocationMutationArgs = {
+  latitude: Scalars['Float'];
+  longitude: Scalars['Float'];
+  profileId: Scalars['Int'];
 };
 
 export type NotifReceiver = NotificationNode & {
@@ -899,10 +959,10 @@ export enum NotificationNotifServiceObjectTypeChoices {
 
 /** An enumeration. */
 export enum NotificationNotificationStatusChoices {
-  /** SUCCESS */
-  Success = 'SUCCESS',
   /** FAILED */
-  Failed = 'FAILED'
+  Failed = 'FAILED',
+  /** SUCCESS */
+  Success = 'SUCCESS'
 }
 
 export type Otp = ExtendProfileNode & {
@@ -950,7 +1010,7 @@ export type Order = BusinessLogicNode & {
   expectedDate?: Maybe<Scalars['Date']>;
   description?: Maybe<Scalars['String']>;
   status: BusinesslogicOrderStatusChoices;
-  finalizedLab?: Maybe<Lab>;
+  finalizedLab?: Maybe<LabNode>;
   relatedService?: Maybe<ServiceType>;
   invoice?: Maybe<InvoiceType>;
   logs: LogConnection;
@@ -1014,7 +1074,7 @@ export type OrderType = {
   expectedDate?: Maybe<Scalars['Date']>;
   description?: Maybe<Scalars['String']>;
   status: BusinesslogicOrderStatusChoices;
-  finalizedLab?: Maybe<Lab>;
+  finalizedLab?: Maybe<LabNode>;
   relatedService?: Maybe<ServiceType>;
   invoice?: Maybe<InvoiceType>;
   logs: LogConnection;
@@ -1069,31 +1129,14 @@ export type Patient = BusinessLogicNode & {
   id: Scalars['ID'];
   deletedAt?: Maybe<Scalars['DateTime']>;
   relatedProfile: Profile;
-  doctor: DoctorConnection;
+  doctor: Array<DoctorNode>;
+  patientPics?: Maybe<PatientPic>;
   createdAt: Scalars['DateTime'];
   updatedAt: Scalars['DateTime'];
   smileDesigns: SmileDesignServiceConnection;
   serviceSet: Array<ServiceType>;
   patientPic?: Maybe<PatientPic>;
   _id?: Maybe<Scalars['Int']>;
-};
-
-
-export type PatientDoctorArgs = {
-  offset?: Maybe<Scalars['Int']>;
-  before?: Maybe<Scalars['String']>;
-  after?: Maybe<Scalars['String']>;
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-  patient_In?: Maybe<Array<Maybe<Scalars['String']>>>;
-  services_In?: Maybe<Array<Maybe<Scalars['String']>>>;
-  smileDesigns_In?: Maybe<Array<Maybe<Scalars['String']>>>;
-  id_In?: Maybe<Array<Maybe<Scalars['String']>>>;
-  relatedProfile_In?: Maybe<Array<Maybe<Scalars['ID']>>>;
-  rating_In?: Maybe<Array<Maybe<Scalars['Float']>>>;
-  rateSize_In?: Maybe<Array<Maybe<Scalars['Int']>>>;
-  createdAt_In?: Maybe<Array<Maybe<Scalars['DateTime']>>>;
-  updatedAt_In?: Maybe<Array<Maybe<Scalars['DateTime']>>>;
 };
 
 
@@ -1147,6 +1190,7 @@ export type PatientPic = BusinessLogicNode & {
   sideImage?: Maybe<Scalars['String']>;
   optionalImage?: Maybe<Scalars['String']>;
   patient?: Maybe<PatientType>;
+  patients?: Maybe<PatientType>;
   _id?: Maybe<Scalars['Int']>;
 };
 
@@ -1174,30 +1218,13 @@ export type PatientType = {
   id: Scalars['ID'];
   deletedAt?: Maybe<Scalars['DateTime']>;
   relatedProfile: Profile;
-  doctor: DoctorConnection;
+  doctor: Array<DoctorNode>;
+  patientPics?: Maybe<PatientPic>;
   createdAt: Scalars['DateTime'];
   updatedAt: Scalars['DateTime'];
   smileDesigns: SmileDesignServiceConnection;
   serviceSet: Array<ServiceType>;
   patientPic?: Maybe<PatientPic>;
-};
-
-
-export type PatientTypeDoctorArgs = {
-  offset?: Maybe<Scalars['Int']>;
-  before?: Maybe<Scalars['String']>;
-  after?: Maybe<Scalars['String']>;
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-  patient_In?: Maybe<Array<Maybe<Scalars['String']>>>;
-  services_In?: Maybe<Array<Maybe<Scalars['String']>>>;
-  smileDesigns_In?: Maybe<Array<Maybe<Scalars['String']>>>;
-  id_In?: Maybe<Array<Maybe<Scalars['String']>>>;
-  relatedProfile_In?: Maybe<Array<Maybe<Scalars['ID']>>>;
-  rating_In?: Maybe<Array<Maybe<Scalars['Float']>>>;
-  rateSize_In?: Maybe<Array<Maybe<Scalars['Int']>>>;
-  createdAt_In?: Maybe<Array<Maybe<Scalars['DateTime']>>>;
-  updatedAt_In?: Maybe<Array<Maybe<Scalars['DateTime']>>>;
 };
 
 
@@ -1240,9 +1267,9 @@ export type Profile = ExtendProfileNode & {
   email?: Maybe<Scalars['String']>;
   OTP: OtpConnection;
   notifreceiver?: Maybe<NotifReceiver>;
-  doctor?: Maybe<Doctor>;
+  doctor?: Maybe<DoctorNode>;
   patient?: Maybe<PatientType>;
-  lab?: Maybe<Lab>;
+  lab?: Maybe<LabNode>;
   sender: TicketConnection;
   receiver: TicketConnection;
   _id?: Maybe<Scalars['Int']>;
@@ -1314,6 +1341,8 @@ export type ProfileEdge = {
 
 export type Query = {
   __typename?: 'Query';
+  getNearestLab?: Maybe<Array<Maybe<LabNode>>>;
+  getNearestDoctor?: Maybe<Array<Maybe<DoctorNode>>>;
   getReport?: Maybe<Array<Maybe<ReportNode>>>;
   NotifService?: Maybe<NotifService>;
   allNotifservice?: Maybe<NotifServiceConnection>;
@@ -1363,6 +1392,18 @@ export type Query = {
   allTicket?: Maybe<TicketConnection>;
   LabPic?: Maybe<LabPic>;
   allLabpic?: Maybe<LabPicConnection>;
+};
+
+
+export type QueryGetNearestLabArgs = {
+  profileId?: Maybe<Scalars['Int']>;
+  first?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryGetNearestDoctorArgs = {
+  profileId?: Maybe<Scalars['Int']>;
+  first?: Maybe<Scalars['Int']>;
 };
 
 
@@ -1745,6 +1786,7 @@ export type QueryAllPatientArgs = {
   id?: Maybe<Scalars['ID']>;
   deletedAt?: Maybe<Scalars['DateTime']>;
   relatedProfile?: Maybe<Scalars['ID']>;
+  patientPics?: Maybe<Scalars['ID']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
   doctor?: Maybe<Array<Maybe<Scalars['ID']>>>;
@@ -1754,10 +1796,12 @@ export type QueryAllPatientArgs = {
   id_In?: Maybe<Array<Maybe<Scalars['String']>>>;
   deletedAt_In?: Maybe<Array<Maybe<Scalars['String']>>>;
   relatedProfile_In?: Maybe<Array<Maybe<Scalars['String']>>>;
+  patientPics_In?: Maybe<Array<Maybe<Scalars['String']>>>;
   createdAt_In?: Maybe<Array<Maybe<Scalars['String']>>>;
   updatedAt_In?: Maybe<Array<Maybe<Scalars['String']>>>;
   doctor_In?: Maybe<Array<Maybe<Scalars['String']>>>;
   searchByName?: Maybe<Scalars['String']>;
+  profileId?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 
@@ -1985,10 +2029,12 @@ export type QueryAllPatientpicArgs = {
   after?: Maybe<Scalars['String']>;
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
+  patients?: Maybe<Scalars['ID']>;
   id?: Maybe<Scalars['ID']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
   patient?: Maybe<Scalars['ID']>;
+  patients_In?: Maybe<Array<Maybe<Scalars['String']>>>;
   id_In?: Maybe<Array<Maybe<Scalars['String']>>>;
   createdAt_In?: Maybe<Array<Maybe<Scalars['String']>>>;
   updatedAt_In?: Maybe<Array<Maybe<Scalars['String']>>>;
@@ -2092,7 +2138,7 @@ export type Service = BusinessLogicNode & {
   __typename?: 'Service';
   /** The ID of the object */
   id: Scalars['ID'];
-  relatedDoctor: Doctor;
+  relatedDoctor: DoctorNode;
   relatedPatient: PatientType;
   category?: Maybe<ServiceCategory>;
   createdAt: Scalars['DateTime'];
@@ -2177,7 +2223,7 @@ export type ServiceEdge = {
 export type ServiceType = {
   __typename?: 'ServiceType';
   id: Scalars['ID'];
-  relatedDoctor: Doctor;
+  relatedDoctor: DoctorNode;
   relatedPatient: PatientType;
   category?: Maybe<ServiceCategory>;
   createdAt: Scalars['DateTime'];
@@ -2326,7 +2372,7 @@ export type SmileDesignService = SmileDesignNode & {
   relatedSmileColor?: Maybe<SmileColor>;
   relatedSmileCategory?: Maybe<SmileCategory>;
   patient?: Maybe<PatientType>;
-  doctor?: Maybe<Doctor>;
+  doctor?: Maybe<DoctorNode>;
   status: SmiledesignSmileDesignServiceStatusChoices;
   shape?: Maybe<FaceShape>;
   width?: Maybe<Scalars['Int']>;
@@ -2914,7 +2960,7 @@ export type OrderQuery = (
     { __typename?: 'Order' }
     & Pick<Order, 'id' | 'status' | 'expectedDate'>
     & { finalizedLab?: Maybe<(
-      { __typename?: 'Lab' }
+      { __typename?: 'LabNode' }
       & { relatedProfile: (
         { __typename?: 'Profile' }
         & Pick<Profile, 'firstName'>
@@ -3129,6 +3175,21 @@ export type Search_PQuery = (
   )> }
 );
 
+export type LocMutationVariables = Exact<{
+  long: Scalars['Float'];
+  lat: Scalars['Float'];
+  profileId: Scalars['Int'];
+}>;
+
+
+export type LocMutation = (
+  { __typename?: 'Mutations' }
+  & { locationMutation?: Maybe<(
+    { __typename?: 'LocationMutation' }
+    & Pick<LocationMutation, 'status'>
+  )> }
+);
+
 export type ProfileQueryVariables = Exact<{
   id: Scalars['ID'];
 }>;
@@ -3138,7 +3199,7 @@ export type ProfileQuery = (
   { __typename?: 'Query' }
   & { Profile?: Maybe<(
     { __typename?: 'Profile' }
-    & Pick<Profile, 'id' | 'phoneNumber' | 'email'>
+    & Pick<Profile, 'id' | 'phoneNumber' | 'email' | 'profilePic'>
   )> }
 );
 
@@ -3974,12 +4035,31 @@ export const Search_PDocument = gql`
       super(apollo);
     }
   }
+export const LocDocument = gql`
+    mutation loc($long: Float!, $lat: Float!, $profileId: Int!) {
+  locationMutation(latitude: $lat, longitude: $long, profileId: $profileId) {
+    status
+  }
+}
+    `;
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class LocGQL extends Apollo.Mutation<LocMutation, LocMutationVariables> {
+    document = LocDocument;
+    
+    constructor(apollo: Apollo.Apollo) {
+      super(apollo);
+    }
+  }
 export const ProfileDocument = gql`
     query profile($id: ID!) {
   Profile(id: $id) {
     id
     phoneNumber
     email
+    profilePic
   }
 }
     `;

@@ -3,7 +3,8 @@
     <ion-title
       class="ion-text-center"
       style="margin-right: -2.2em; color: white"
-      translate>
+      translate
+    >
       Account
     </ion-title>
     <!-- <ion-buttons> -->
@@ -18,47 +19,63 @@
 </ion-header>
 
 <ion-content>
-  <div >
-
-
-
-<!-- <img [src]="base64" alt=""> -->
+  <div>
+    <!-- <img [src]="base64" alt=""> -->
 
     <ion-row
       class="ion-justify-content-center ion-padding-horizontal ion-padding-top"
     >
-    <ion-col size="5">
-      <ion-row class="ion-justify-content-center " >
-        <ion-col class="vertical-align-content" >
-          <img [src]="base64" *ngIf="pro_status" alt="" style="border-radius: 50%; height: 12vh; ">
-          <img src="../../assets/final back white-01.png" *ngIf="!pro_status" alt="" style="border-radius: 50%; height: 12vh; ">
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col class="ion-text-center ion-no-padding">
-          <div><ion-label onclick="document.getElementById('getFile').click()" style="font-size: 0.7em; color: #3eb5df;" translate>
-            Change profile photo
-          </ion-label><input id="getFile" type="file" style="display: none;" (change)="fileChangeEvent($event)"/></div>
+      <ion-col size="5">
+        <ion-row class="ion-justify-content-center">
+          <ion-col class="vertical-align-content">
+            <img
+              [src]="base64"
+              *ngIf="pro_status"
+              alt=""
+              style="border-radius: 50%; height: 12vh"
+            />
+            <img
+              src="https://api.risos.co/mediafiles/{{profilePic}}" 
+              *ngIf="!pro_status"
+              alt=""
+              style="border-radius: 50%; height: 12vh"
+            />
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="ion-text-center ion-no-padding">
+            <div>
+              <ion-label
+                onclick="document.getElementById('getFile').click()"
+                style="font-size: 0.7em; color: #3eb5df"
+                translate
+              >
+                Change profile photo </ion-label
+              ><input
+                id="getFile"
+                type="file"
+                style="display: none"
+                (change)="fileChangeEvent($event)"
+              />
+            </div>
 
-          <ngx-photo-editor
-  [imageChanedEvent]="imageChangedEvent"
-  (imageCropped)="imageCropped($event)"
-  [viewMode]="3"></ngx-photo-editor>
+            <ngx-photo-editor
+              [imageChanedEvent]="imageChangedEvent"
+              (imageCropped)="imageCropped($event)"
+              [viewMode]="3"
+            ></ngx-photo-editor>
 
-          <!-- <input type="file" (change)="fileChangeEvent($event)"> -->
-          <!-- <ion-input type="file" [(ngModel)]="file"></ion-input> -->
-          <!-- <ion-button (click)="print()"></ion-button> -->
-          <!-- <input type="file" id="customimage" class="file-upload"  (change)="myfunction($event)"> -->
+            <!-- <input type="file" (change)="fileChangeEvent($event)"> -->
+            <!-- <ion-input type="file" [(ngModel)]="file"></ion-input> -->
+            <!-- <ion-button (click)="print()"></ion-button> -->
+            <!-- <input type="file" id="customimage" class="file-upload"  (change)="myfunction($event)"> -->
 
-          <!-- <input type="file" #filechooser multiple /> -->
-
-        </ion-col>
-      </ion-row>
-     </ion-col>
+            <!-- <input type="file" #filechooser multiple /> -->
+          </ion-col>
+        </ion-row>
+      </ion-col>
       <ion-col class="ion-padding-left" size="7">
-        <ion-row
-          class="ion-justify-content-center ion-padding-bottom"
-        >
+        <ion-row class="ion-justify-content-center ion-padding-bottom">
           <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
             <ion-row style="margin-bottom: -0.6em">
               <ion-label
@@ -72,18 +89,16 @@
                   background: #f2f2f7;
                   z-index: 2;
                 "
-              translate>
+                translate
+              >
                 First name
               </ion-label>
             </ion-row>
-            <ion-input style="z-index: 1;" [(ngModel)]="first">
-            </ion-input>
+            <ion-input style="z-index: 1" [(ngModel)]="first"> </ion-input>
           </ion-col>
         </ion-row>
 
-        <ion-row
-          class="ion-justify-content-center "
-        >
+        <ion-row class="ion-justify-content-center">
           <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
             <ion-row style="margin-bottom: -0.6em">
               <ion-label
@@ -97,18 +112,20 @@
                   background: #f2f2f7;
                   z-index: 2;
                 "
-              translate>
+                translate
+              >
                 Last name
               </ion-label>
             </ion-row>
-            <ion-input style="z-index: 1;" [(ngModel)]="last" >
-            </ion-input>
+            <ion-input style="z-index: 1" [(ngModel)]="last"> </ion-input>
           </ion-col>
         </ion-row>
       </ion-col>
     </ion-row>
     <ion-row
-      class="ion-justify-content-center ion-padding-horizontal ion-padding-vertical"
+      class="
+        ion-justify-content-center ion-padding-horizontal ion-padding-vertical
+      "
     >
       <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
         <ion-row style="margin-bottom: -0.6em">
@@ -123,17 +140,24 @@
               background: #f2f2f7;
               z-index: 2;
             "
-          translate>
+            translate
+          >
             Mobile number
           </ion-label>
         </ion-row>
-        <ion-input [disabled]="!edit ? '' : null" style="z-index: 1;" [(ngModel)]="mobile" >
+        <ion-input
+          [disabled]="!edit ? '' : null"
+          style="z-index: 1"
+          [(ngModel)]="mobile"
+        >
         </ion-input>
       </ion-col>
     </ion-row>
 
     <ion-row
-      class="ion-justify-content-center ion-padding-horizontal ion-padding-vertical"
+      class="
+        ion-justify-content-center ion-padding-horizontal ion-padding-vertical
+      "
     >
       <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
         <ion-row style="margin-bottom: -0.6em">
@@ -148,17 +172,19 @@
               background: #f2f2f7;
               z-index: 2;
             "
-          translate>
+            translate
+          >
             Landline number
           </ion-label>
         </ion-row>
-        <ion-input style="z-index: 1;" [(ngModel)]="land" >
-        </ion-input>
+        <ion-input style="z-index: 1" [(ngModel)]="land"> </ion-input>
       </ion-col>
     </ion-row>
 
     <ion-row
-      class="ion-justify-content-center ion-padding-horizontal ion-padding-vertical"
+      class="
+        ion-justify-content-center ion-padding-horizontal ion-padding-vertical
+      "
     >
       <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
         <ion-row style="margin-bottom: -0.6em">
@@ -173,16 +199,25 @@
               background: #f2f2f7;
               z-index: 2;
             "
-          translate>
+            translate
+          >
             Email
           </ion-label>
         </ion-row>
-        <ion-input style="z-index: 1;" [(ngModel)]="email" placeholder="Email "> </ion-input>
+        <ion-input
+          [disabled]="!edit ? '' : null"
+          style="z-index: 1"
+          [(ngModel)]="email"
+          placeholder="Email "
+        >
+        </ion-input>
       </ion-col>
     </ion-row>
 
     <ion-row
-      class="ion-justify-content-center ion-padding-horizontal ion-padding-vertical"
+      class="
+        ion-justify-content-center ion-padding-horizontal ion-padding-vertical
+      "
     >
       <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
         <ion-row style="margin-bottom: -0.6em">
@@ -197,12 +232,26 @@
               background: #f2f2f7;
               z-index: 2;
             "
-          translate>
+            translate
+          >
             Address
           </ion-label>
         </ion-row>
-        <ion-input style="height: 4em; z-index: 1;" [(ngModel)]="address" placeholder="Valiasr Sq - Tehran ">
+        <ion-input
+          style="height: 4em; z-index: 1"
+          [(ngModel)]="address"
+          placeholder="Valiasr Sq - Tehran "
+        >
         </ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-button
+          style="color: black; --background: #3abff8"
+          (click)="getPosition()"
+          >Get Location</ion-button
+        >
       </ion-col>
     </ion-row>
   </div>
@@ -225,7 +274,8 @@
             box-shadow: 0px 1px 2px #000000;
             font-weight: lighter;
           "
-        translate>
+          translate
+        >
           Log out
         </ion-button>
       </ion-col>
@@ -250,7 +300,8 @@
             box-shadow: 0px 1px 2px #000000;
             font-weight: lighter;
           "
-        translate>
+          translate
+        >
           save
         </ion-button>
       </ion-col>
