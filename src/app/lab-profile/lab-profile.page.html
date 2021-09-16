@@ -22,9 +22,9 @@
         <ion-row class="ion-justify-content-center">
           <ion-col class="vertical-align-content">
             <img
-              src="../../assets/lab1.png"
+            src="https://api.risos.co/mediafiles/{{profilePic}}" 
               alt=""
-              style="border-radius: 50%; height: 15vh; width: 15vh"
+              style="border-radius: 50%; height: 12vh"
             />
           </ion-col>
         </ion-row>
@@ -53,7 +53,7 @@
                 Laboratory name
               </ion-label>
             </ion-row>
-            <ion-input style="z-index: 1" [(ngModel)]="Name"> </ion-input>
+            <ion-input [disabled]="!edit ? '' : null" style="z-index: 1" [(ngModel)]="Name"> </ion-input>
           </ion-col>
         </ion-row>
       </ion-col>
@@ -78,10 +78,11 @@
             "
             translate
           >
-            {{phone_no}}
+            Phone Number
           </ion-label>
         </ion-row>
         <ion-input
+        [disabled]="!edit ? '' : null"
           style="z-index: 1"
           [(ngModel)]="phone_no"
           placeholder="Phone Number"
@@ -110,10 +111,11 @@
             "
             translate
           >
-            {{land_no}}
+            Landline Number
           </ion-label>
         </ion-row>
         <ion-input
+        [disabled]="!edit ? '' : null"
           style="z-index: 1"
           [(ngModel)]="land_no"
           placeholder="Landline Number"
@@ -154,7 +156,9 @@
           </ion-label>
         </ion-row>
         <ion-input
+        [disabled]="!edit ? '' : null"
           style="z-index: 1"
+          [disabled]="!edit ? '' : null"
           [(ngModel)]="address"
           placeholder="Valiasr Sq - Tehran "
         >
@@ -186,6 +190,7 @@
           </ion-label>
         </ion-row>
         <ion-input
+        [disabled]="!edit ? '' : null"
           style="z-index: 1"
           [(ngModel)]="detail"
           placeholder="Details"

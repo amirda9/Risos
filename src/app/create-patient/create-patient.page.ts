@@ -374,6 +374,46 @@ export class CreatePatientPage implements OnInit {
   }
 
 
+  check(ev:any){
+    const ew = ev.key.charCodeAt();
+    if(!this.age){
+      alert("لطفا زبان خود را عوض کنید")
+      this.age=0;
+    }// TS will throw an error here
+    else{
+      console.log(this.age) 
+    }
+  }
+
+  // check(evt){
+  //   this.phone_no = this.fixNumbers(this.phone_no);
+  // }
+  
+  checkPhone(ev:any){
+    // const ew = ev.key.charCodeAt();
+    // if(!this.phone_no){
+    //   alert("لطفا زبان خود را عوض کنید")
+    //   this.phone_no ="0";
+    // }// TS will throw an error here
+    // else{
+    //   // console.log(this.age) 
+    // }
+      this.phone_no = this.fixNumbers(this.phone_no);
+  }
+
+  fixNumbers = function (str)
+{
+   var persianNumbers = [/۰/g, /۱/g, /۲/g, /۳/g, /۴/g, /۵/g, /۶/g, /۷/g, /۸/g, /۹/g];
+  var arabicNumbers  = [/٠/g, /١/g, /٢/g, /٣/g, /٤/g, /٥/g, /٦/g, /٧/g, /٨/g, /٩/g];
+  if(typeof str === 'string')
+  {
+    for(var i=0; i<10; i++)
+    {
+      str = str.replace(persianNumbers[i], i).replace(arabicNumbers[i], i);
+    }
+  }
+  return str;
+};
 
   addPhotoToGallery() {
     this.photoService.addNewToGallery();

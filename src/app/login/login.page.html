@@ -22,7 +22,7 @@
     <ion-grid>
       <ion-row class="ion-justify-content-center ion-padding-horizontal">
         <ion-col class="ion-text-left" size="12" size-lg="8">
-          <ion-input [(ngModel)]="id" [placeholder]=keyTranslated> </ion-input>
+          <ion-input (keyup)="check($event)" [(ngModel)]="id" [placeholder]=keyTranslated> </ion-input>
         </ion-col>
       </ion-row>
 

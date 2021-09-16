@@ -13,6 +13,9 @@ import { USERNAME } from '../constants';
 export class SignupPage implements OnInit {
   constructor(private transservice:TranslateService,private router:Router,private alertcontroller:AlertController,private registerGQL:RegisterGQL ,private loadingcontroller:LoadingController,private req_otp:Req_OtpGQL) { }
 
+  
+ 
+
   phone_no :string;
   pass :string ;
   email:string;
@@ -36,6 +39,63 @@ export class SignupPage implements OnInit {
   togglePasswordFieldType(){
     this.is_TextFieldType = !this.is_TextFieldType;
   }
+
+  check(evt){
+    this.phone_no = this.fixNumbers(this.phone_no);
+    // var charCode = (evt.which) ? evt.which : evt.keyCode
+    // console.log(charCode)
+    // if ((charCode < 48 || charCode > 57 && charCode!=8) ){
+    //     // alert('test')
+    //     console.log(this.phone_no)
+    // }
+    // return true;
+
+    // var ew = evt.which;
+    // if(ew == 32 || ew == 8){}
+    // else if(48 <= ew && ew <= 57){}
+    // else if(65 <= ew && ew <= 90){}
+    // else if(97 <= ew && ew <= 122){}
+    // else{
+    //   // alert('hi')
+    // }
+
+    // $persian = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+    // $arabic = ['٩', '٨', '٧', '٦', '٥', '٤', '٣', '٢', '١','٠'];
+
+    // $num = range(0, 9);
+    // $convertedPersianNums = str_replace($persian, $num, $string);
+    // $englishNumbersOnly = str_replace($arabic, $num, $convertedPersianNums);
+    // return false;
+//     var
+// persianNumbers = [/۰/g, /۱/g, /۲/g, /۳/g, /۴/g, /۵/g, /۶/g, /۷/g, /۸/g, /۹/g],
+// EnglishNumbers  = [/0/g, /1/g, /2/g, /3/g, /4/g, /5/g, /6/g, /7/g, /8/g, /9/g];
+
+
+//   if(typeof this.phone_no === 'string')
+//   {
+//     for(var i=0; i<10; i++)
+//     {
+//       this.phone_no = this.phone_no.replace(persianNumbers[i],i);
+//     }
+//   }
+
+  }
+
+
+
+fixNumbers = function (str)
+{
+   var persianNumbers = [/۰/g, /۱/g, /۲/g, /۳/g, /۴/g, /۵/g, /۶/g, /۷/g, /۸/g, /۹/g];
+  var arabicNumbers  = [/٠/g, /١/g, /٢/g, /٣/g, /٤/g, /٥/g, /٦/g, /٧/g, /٨/g, /٩/g];
+  if(typeof str === 'string')
+  {
+    for(var i=0; i<10; i++)
+    {
+      str = str.replace(persianNumbers[i], i).replace(arabicNumbers[i], i);
+    }
+  }
+  return str;
+};
 
   async confirm(){
       if(this.pass == this.pass_rep){

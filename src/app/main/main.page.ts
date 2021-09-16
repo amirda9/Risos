@@ -28,7 +28,7 @@ export class MainPage implements OnInit {
 
   tut(){
         this.joyrideService.startTour(
-      { steps: ['firstStep'] } // Your steps order
+      { steps: ['firstStep','secondStep','thirdStep','4thStep','5thStep'] } // Your steps order
   );
   }
 

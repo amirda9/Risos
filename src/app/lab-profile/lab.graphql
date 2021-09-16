@@ -6,6 +6,7 @@ query lab($id:ID!){
       firstName
       phoneNumber
       telephoneNumber
+      profilePic
     }
     orderSet{
       expectedDate

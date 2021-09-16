@@ -24,6 +24,7 @@ export class LabProfilePage implements OnInit {
   // lng: number = 7.815982;
 
   edit = false;
+  profilePic: string;
 
   constructor(private route:ActivatedRoute , private router:Router , private lab_gql:LabGQL, private locGQL:LocGQL) {
     this.route.queryParams.subscribe(params => {
@@ -46,6 +47,7 @@ export class LabProfilePage implements OnInit {
       this.phone_no = res.data.Lab.relatedProfile.phoneNumber;
       this.land_no = res.data.Lab.relatedProfile.telephoneNumber;
       this.profile = res.data.Lab.relatedProfile._id;
+      this.profilePic = res.data.Lab.relatedProfile.profilePic;
       // console.log(res)
     })
   }

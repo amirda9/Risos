@@ -20,7 +20,7 @@
   <div style="margin-top: 5em;">
   <ion-row class="ion-justify-content-center ion-padding-horizontal ion-padding-top">
     <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
-    <ion-input  [(ngModel)]="phone_no" [placeholder]=PnTrans>
+    <ion-input  (keyup)="check($event)" [(ngModel)]="phone_no" [placeholder]=PnTrans>
     </ion-input>
   </ion-col>
   </ion-row>

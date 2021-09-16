@@ -2806,7 +2806,7 @@ export type LabQuery = (
     { __typename?: 'Lab' }
     & { relatedProfile: (
       { __typename?: 'Profile' }
-      & Pick<Profile, 'id' | '_id' | 'firstName' | 'phoneNumber' | 'telephoneNumber'>
+      & Pick<Profile, 'id' | '_id' | 'firstName' | 'phoneNumber' | 'telephoneNumber' | 'profilePic'>
     ), orderSet: Array<(
       { __typename?: 'OrderType' }
       & Pick<OrderType, 'expectedDate'>
@@ -3580,6 +3580,7 @@ export const LabDocument = gql`
       firstName
       phoneNumber
       telephoneNumber
+      profilePic
     }
     orderSet {
       expectedDate

@@ -246,7 +246,7 @@
             ion-justify-content-center ion-padding-horizontal ion-padding-top
           ">
           <ion-col class="ion-text-left" size="12" size-lg="8">
-            <ion-input [placeholder]=Pntranslated [(ngModel)]="phone_no">
+            <ion-input (keyup)="checkPhone($event)" [placeholder]=Pntranslated [(ngModel)]="phone_no">
             </ion-input>
           </ion-col>
         </ion-row>
@@ -284,7 +284,7 @@
             ion-justify-content-center ion-padding-horizontal ion-padding-top
           ">
           <ion-col class="ion-text-left" size="12" size-lg="8">
-            <ion-input placeholder="Age" [(ngModel)]="age"> </ion-input>
+            <ion-input placeholder="Age" type="number" (keyup)="check($event)" [(ngModel)]="age"> </ion-input>
           </ion-col>
         </ion-row>
       </ion-grid>
