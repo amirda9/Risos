@@ -19,6 +19,8 @@ export class ComparisonPage implements OnInit {
 
   t_model:string;
   t_color:string;
+  imageUrl: any;
+  pic: any;
 
   constructor(private save_smile:Save_DesignGQL,private route:ActivatedRoute , private router:Router, private servicegql: ServiceGQL , private patientgql:PatientGQL) {
     this.route.queryParams.subscribe(params => {
@@ -46,11 +48,21 @@ export class ComparisonPage implements OnInit {
     })
 
     console.log(this._id)
-    var imageUrl = URL.createObjectURL(this.img);
+    this.imageUrl = URL.createObjectURL(this.img);
 
     var img = document.getElementById("image") as HTMLImageElement
-    img.src = imageUrl
+    img.src = this.imageUrl;
 
+
+    var b: any = this.img;
+    //A Blob() is almost a File() - it's just missing the two properties below which we will add
+    b.lastModifiedDate = new Date();
+    b.name = new Date().getTime().toString()+'.png';
+
+    //Cast to a File() type
+    this.pic =  <File>b;
+    console.log(this.pic);
+    
     // img.height =
 
     // document.querySelector("#image").src = imageUrl;
@@ -91,7 +103,7 @@ export class ComparisonPage implements OnInit {
       color:this.t_color,
       model:this.t_model,
       images:{
-        smileImageResult:this.img
+        smileImageResult:this.pic
       }
     }).subscribe(res=>{
       console.log("sending res is :" + res.data.updateSmileDesign.status)

@@ -140,6 +140,7 @@ export class CreateOrderPage implements OnInit {
 
 
   async submit(){
+    if(this.chosenModel && this.chosenColor && this.invoice){
     // console.log(this.chosenColor,this.chosenModel,this.invoice)
       const loading = await this.loadingController.create({
         message: 'Loading ...',
@@ -174,6 +175,11 @@ export class CreateOrderPage implements OnInit {
         })
       })
 
+    }
+    else{
+      alert('Please Enter Details')
+    }
   }
+
 
 }
