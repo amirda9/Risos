@@ -29,7 +29,7 @@
       <li *ngFor="let item of tickets|async">  <div class="container" *ngIf="item.node.sender._id != ID">
         <img src="https://api.risos.co/mediafiles//profile/default-profile.jpg" alt="Avatar">
         <p>{{item.node.message}}</p>
-        <span class="time-right">Sent</span>
+        <span class="time-right">Received</span>
       </div>
 
       <div class="container darker" *ngIf="item.node.sender._id == ID">

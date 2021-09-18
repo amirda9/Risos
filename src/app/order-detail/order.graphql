@@ -5,6 +5,7 @@ query order($id: ID!) {
     finalizedLab {
       relatedProfile {
         firstName
+        _id
       }
     }
     ticketSet {

@@ -2963,7 +2963,7 @@ export type OrderQuery = (
       { __typename?: 'LabNode' }
       & { relatedProfile: (
         { __typename?: 'Profile' }
-        & Pick<Profile, 'firstName'>
+        & Pick<Profile, 'firstName' | '_id'>
       ) }
     )>, ticketSet: (
       { __typename?: 'TicketConnection' }
@@ -3771,6 +3771,7 @@ export const OrderDocument = gql`
     finalizedLab {
       relatedProfile {
         firstName
+        _id
       }
     }
     ticketSet {
