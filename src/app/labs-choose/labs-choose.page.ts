@@ -32,22 +32,8 @@ export class LabsChoosePage implements OnInit {
 
 
   async select(e) {
-    // this.ordergql.mutate({
-    //   sid: this.s_id,
-    //   lid: e
-    // }).subscribe(async res => {
-    //   console.log(res.data.createOrder.order);
-    //   // let navigationExtras: NavigationExtras = {
-    //   //   state: {
-    //   //     status:1
-    //   //   }
-    //   // };
-    //   // this.router.navigate(['/success'],navigationExtras)
-
-    // });
     const modal = await this.modalController.create({
       component: DatepickerComponent,
-      // componentProps: { services: this.services, chosenTooth:tooth, invoice:this.invoice },
     });
 
 
@@ -62,7 +48,7 @@ export class LabsChoosePage implements OnInit {
         });
         await loading.present();
         this.pickedDate = data['data']
-       console.log(this.pickedDate)
+      //  console.log(this.pickedDate)
 
        this.ordergql.mutate({
       sid: this.s_id,

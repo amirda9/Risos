@@ -24,9 +24,19 @@ export class TicketComponent implements OnInit {
     this.tickets=this.ordergql.watch({
       id:"Order:"+this.id
     }).valueChanges.pipe(map(result => result.data.Order.ticketSet.edges));
+
+
+    setInterval(()=>{       
+      // console.log(1)                    
+      this.tickets=this.ordergql.watch({
+        id:"Order:"+this.id
+      }).valueChanges.pipe(map(result => result.data.Order.ticketSet.edges));
+  }, 100000);
+
   }
 
 
+  
   close(){
     this.modalcontroller.dismiss();
   }

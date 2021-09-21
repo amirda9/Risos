@@ -70,6 +70,10 @@ export class SmilePage implements OnInit {
   t_model:string;
   t_color:string;
 
+
+  string1="all teeth"
+  string2="no color"
+
   constructor(private translateserv:TranslateService,private loadingController:LoadingController,private servicegql: ServiceGQL, private route: ActivatedRoute, private router: Router, private renderer: Renderer2 , private smile_design:AllsmileGQL , private patientgql:PatientGQL) {
 
   }
@@ -163,13 +167,12 @@ export class SmilePage implements OnInit {
     };
     this.teethLayer = new Konva.Layer();
     this.stage.add(this.teethLayer);
-    if(this.translateserv.currentLang=="fa"){
-      this.teethModel = Object.keys(teethImgfa);
-    }
-    else{
-      this.teethModel = Object.keys(teethImg);
-    }
-
+    // if(this.translateserv.currentLang=="fa"){
+    //   this.teethModel = Object.keys(teethImg);
+    // }
+    // else{
+    //   this.teethModel = Object.keys(teethImg);
+    // }
 
 
 

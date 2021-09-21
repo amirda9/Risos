@@ -3021,7 +3021,7 @@ export type OrdersQuery = (
       { __typename?: 'OrderEdge' }
       & { node?: Maybe<(
         { __typename?: 'Order' }
-        & Pick<Order, '_id' | 'id' | 'status' | 'expectedDate'>
+        & Pick<Order, '_id' | 'id' | 'status' | 'expectedDate' | 'updatedAt'>
         & { relatedService?: Maybe<(
           { __typename?: 'ServiceType' }
           & { relatedPatient: (
@@ -3050,7 +3050,7 @@ export type Orders_SQuery = (
       { __typename?: 'OrderEdge' }
       & { node?: Maybe<(
         { __typename?: 'Order' }
-        & Pick<Order, '_id' | 'id' | 'status' | 'expectedDate'>
+        & Pick<Order, '_id' | 'id' | 'status' | 'expectedDate' | 'updatedAt'>
         & { relatedService?: Maybe<(
           { __typename?: 'ServiceType' }
           & { relatedPatient: (
@@ -3079,7 +3079,7 @@ export type Orders_StateQuery = (
       { __typename?: 'OrderEdge' }
       & { node?: Maybe<(
         { __typename?: 'Order' }
-        & Pick<Order, '_id' | 'id' | 'status' | 'expectedDate'>
+        & Pick<Order, '_id' | 'id' | 'status' | 'expectedDate' | 'updatedAt'>
         & { relatedService?: Maybe<(
           { __typename?: 'ServiceType' }
           & { relatedPatient: (
@@ -3841,6 +3841,7 @@ export const OrdersDocument = gql`
         id
         status
         expectedDate
+        updatedAt
         relatedService {
           relatedPatient {
             relatedProfile {
@@ -3874,6 +3875,7 @@ export const Orders_SDocument = gql`
         id
         status
         expectedDate
+        updatedAt
         relatedService {
           relatedPatient {
             relatedProfile {
@@ -3907,6 +3909,7 @@ export const Orders_StateDocument = gql`
         id
         status
         expectedDate
+        updatedAt
         relatedService {
           relatedPatient {
             relatedProfile {

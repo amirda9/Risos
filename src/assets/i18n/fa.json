@@ -96,5 +96,12 @@
   "Please type the verification code sent to {{username}}":"لطفا کد ارسال شده به شماره خود را وارد کنید",
   "Reload":"بارگزاری مجدد",
   "rectangle":"مستطیل",
-  "New Order":"سفارش جدید"
+  "New Order":"سفارش جدید",
+  "naturalRectangle":"مستطیل طبیعی",
+  "fashionStyle":"فشن استایل",
+  "circle":"دایره",
+  "square":"مربع",
+  "all teeth":"همه دندان ها",
+  "no color":"بدون رنگ",
+  "Chat":"چت"
 }

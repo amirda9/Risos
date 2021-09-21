@@ -6,6 +6,7 @@ query orders_s($name:String!){
         id
         status
         expectedDate
+        updatedAt
         relatedService{
           relatedPatient{
             relatedProfile{

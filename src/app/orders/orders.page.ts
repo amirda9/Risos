@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { OrdersGQL,OrdersQuery, Orders_SGQL, Orders_SQuery, Orders_StateGQL} from 'src/generated/graphql'
-import { ID } from '../constants';
+import { ID, LANG } from '../constants';
 
 @Component({
   selector: 'app-orders',
@@ -16,11 +17,13 @@ export class OrdersPage implements OnInit {
   orders:Observable< OrdersQuery['allOrder']['edges']>;
   search_res:any;
   searched:boolean;
-  constructor(private router:Router , private ordergql:OrdersGQL , private search_o:Orders_SGQL ,private state_o:Orders_StateGQL) {
+  constructor(private trService:TranslateService,private router:Router , private ordergql:OrdersGQL , private search_o:Orders_SGQL ,private state_o:Orders_StateGQL) {
     this.orders = this.ordergql.watch({dr:localStorage.getItem(ID)}).valueChanges.pipe(map(res=>res.data.allOrder.edges))
   }
 
   ngOnInit() {
+    // console.log(localStorage.getItem(LANG))
+    
   }
 
   show(e){

@@ -13,12 +13,12 @@
       <ion-col size="12">
         <ion-segment scrollable value="" (ionChange)="choseTeethModel($event)">
           <ion-segment-button *ngFor="let model of teethModel;" value="{{model}}">
-            {{model}}
+            {{model | translate}}
           </ion-segment-button>
         </ion-segment>
         <ion-segment *ngIf="chosenModel" scrollable value="{{chosenTeeth}}" (ionChange)="choseTeethPerModel($event)">
           <ion-segment-button value="0">
-            all teeth
+            {{string1 | translate}}
           </ion-segment-button>
           <ion-segment-button *ngFor="let teeth of teethsPerModel;" value="{{teeth}}">
             {{teeth}}
@@ -26,7 +26,7 @@
         </ion-segment>
         <ion-segment *ngIf="chosenModel" scrollable value="{{chosenColor}}" (ionChange)="choseColor($event)">
           <ion-segment-button value="0">
-            no color
+            {{string2 | translate}}
           </ion-segment-button>
           <ion-segment-button *ngFor="let color of teethColors;" value="{{color}}">
             {{color}}

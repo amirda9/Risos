@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { VerifyGQL } from 'src/generated/graphql';
-import { AUTHTOKEN } from '../constants';
+import { AUTHTOKEN, LANG, P_ID } from '../constants';
 
 @Component({
   selector: 'app-home',
@@ -84,5 +84,6 @@ export class HomePage implements OnInit {
 
   useLanguage(language: string): void {
     this.translate.use(language);
+    localStorage.setItem(LANG,language)
   }
 }
