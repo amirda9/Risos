@@ -93,15 +93,15 @@ export class SmilePage implements OnInit {
         }).valueChanges.subscribe(res=>{
           this.smileimg = res.data.Patient.patientPic.smileImage;
           // var file=new Image();
-          // file.src = 'https://api.risos.co/mediafiles/'+String(this.smileimg);
-          // reader.readAsDataURL( 'https://api.risos.co/mediafiles/'+String(this.smileimg) );
+          // file.src = 'https://api.risos.ir/mediafiles/'+String(this.smileimg);
+          // reader.readAsDataURL( 'https://api.risos.ir/mediafiles/'+String(this.smileimg) );
           // localStorage.setItem("smileIMG", file.);
-           imageObj.src = 'https://api.risos.co/mediafiles/'+String(this.smileimg);
+           imageObj.src = 'https://api.risos.ir/mediafiles/'+String(this.smileimg);
           //  this.width__ =  imageObj.naturalWidth;
           //  this.height__ =  imageObj.naturalHeight;
           // imageObj = file;
-          //  imageObj.src = "https://api.risos.co/mediafiles/82_74.png";
-          //  imageObj.src = 'https://api.risos.co/mediafiles/'+String(this.smileimg);
+          //  imageObj.src = "https://api.risos.ir/mediafiles/82_74.png";
+          //  imageObj.src = 'https://api.risos.ir/mediafiles/'+String(this.smileimg);
            imageObj.crossOrigin = "anonymous"
         })
         // console.log("smile _id")
@@ -117,7 +117,7 @@ export class SmilePage implements OnInit {
         id:"Patient:"+localStorage.getItem(P_ID)
       }).valueChanges.subscribe(res=>{
         this.smileimg = res.data.Patient.patientPic.smileImage;
-         imageObj.src = 'https://api.risos.co/mediafiles/'+String(this.smileimg);
+         imageObj.src = 'https://api.risos.ir/mediafiles/'+String(this.smileimg);
          imageObj.crossOrigin = "anonymous"
       })
     }
@@ -189,8 +189,8 @@ export class SmilePage implements OnInit {
       console.log(res.data.allSmiledesignservice.edges[0].node.status)
       this.teethless = res.data.allSmiledesignservice.edges[0].node.teethLessImage;
       // console.log(this.teethless);
-      this.imageObj3.src = 'https://api.risos.co/mediafiles/'+String(this.teethless);
-      // imageObj3.src = "https://api.risos.co/mediafiles/82_74.png";
+      this.imageObj3.src = 'https://api.risos.ir/mediafiles/'+String(this.teethless);
+      // imageObj3.src = "https://api.risos.ir/mediafiles/82_74.png";
       this.imageObj3.crossOrigin="anonymous"
     })
 

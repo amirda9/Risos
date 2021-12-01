@@ -1,10 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title
-      class="ion-text-center"
-      style="margin-right: -2.2em; color: white"
-      translate
-    >
+    <ion-title class="ion-text-center" style="margin-right: -2.2em; color: white" translate>
       Account
     </ion-title>
     <!-- <ion-buttons> -->
@@ -22,48 +18,26 @@
   <div>
     <!-- <img [src]="base64" alt=""> -->
 
-    <ion-row
-      class="ion-justify-content-center ion-padding-horizontal ion-padding-top"
-    >
+    <ion-row class="ion-justify-content-center ion-padding-horizontal ion-padding-top">
       <ion-col size="5">
         <ion-row class="ion-justify-content-center">
           <ion-col class="vertical-align-content">
-            <img
-              [src]="base64"
-              *ngIf="pro_status"
-              alt=""
-              style="border-radius: 50%; height: 12vh"
-            />
-            <img
-              src="https://api.risos.co/mediafiles/{{profilePic}}" 
-              *ngIf="!pro_status"
-              alt=""
-              style="border-radius: 50%; height: 12vh"
-            />
+            <img [src]="base64" *ngIf="pro_status" alt="" style="border-radius: 50%; height: 12vh" />
+            <img src="https://api.risos.ir/mediafiles/{{profilePic}}" *ngIf="!pro_status" alt=""
+              style="border-radius: 50%; height: 12vh" />
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col class="ion-text-center ion-no-padding">
             <div>
-              <ion-label
-                onclick="document.getElementById('getFile').click()"
-                style="font-size: 0.7em; color: #3eb5df"
-                translate
-              >
-                Change profile photo </ion-label
-              ><input
-                id="getFile"
-                type="file"
-                style="display: none"
-                (change)="fileChangeEvent($event)"
-              />
+              <ion-label onclick="document.getElementById('getFile').click()" style="font-size: 0.7em; color: #3eb5df"
+                translate>
+                Change profile photo </ion-label><input id="getFile" type="file" style="display: none"
+                (change)="fileChangeEvent($event)" />
             </div>
 
-            <ngx-photo-editor
-              [imageChanedEvent]="imageChangedEvent"
-              (imageCropped)="imageCropped($event)"
-              [viewMode]="3"
-            ></ngx-photo-editor>
+            <ngx-photo-editor [imageChanedEvent]="imageChangedEvent" (imageCropped)="imageCropped($event)"
+              [viewMode]="3"></ngx-photo-editor>
 
             <!-- <input type="file" (change)="fileChangeEvent($event)"> -->
             <!-- <ion-input type="file" [(ngModel)]="file"></ion-input> -->
@@ -78,9 +52,7 @@
         <ion-row class="ion-justify-content-center ion-padding-bottom">
           <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
             <ion-row style="margin-bottom: -0.6em">
-              <ion-label
-                class="ion-padding-horizontal ion-no-padding"
-                style="
+              <ion-label class="ion-padding-horizontal ion-no-padding" style="
                   font-size: 16px;
                   padding-right: 4px;
                   padding-left: 4px;
@@ -88,9 +60,7 @@
                   color: #aaaaaa;
                   background: #f2f2f7;
                   z-index: 2;
-                "
-                translate
-              >
+                " translate>
                 First name
               </ion-label>
             </ion-row>
@@ -101,9 +71,7 @@
         <ion-row class="ion-justify-content-center">
           <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
             <ion-row style="margin-bottom: -0.6em">
-              <ion-label
-                class="ion-padding-horizontal ion-no-padding"
-                style="
+              <ion-label class="ion-padding-horizontal ion-no-padding" style="
                   font-size: 16px;
                   padding-right: 4px;
                   padding-left: 4px;
@@ -111,9 +79,7 @@
                   color: #aaaaaa;
                   background: #f2f2f7;
                   z-index: 2;
-                "
-                translate
-              >
+                " translate>
                 Last name
               </ion-label>
             </ion-row>
@@ -122,16 +88,12 @@
         </ion-row>
       </ion-col>
     </ion-row>
-    <ion-row
-      class="
+    <ion-row class="
         ion-justify-content-center ion-padding-horizontal ion-padding-vertical
-      "
-    >
+      ">
       <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
         <ion-row style="margin-bottom: -0.6em">
-          <ion-label
-            class="ion-padding-horizontal ion-no-padding"
-            style="
+          <ion-label class="ion-padding-horizontal ion-no-padding" style="
               font-size: 16px;
               padding-right: 4px;
               padding-left: 4px;
@@ -139,31 +101,21 @@
               color: #aaaaaa;
               background: #f2f2f7;
               z-index: 2;
-            "
-            translate
-          >
+            " translate>
             Mobile number
           </ion-label>
         </ion-row>
-        <ion-input
-          [disabled]="!edit ? '' : null"
-          style="z-index: 1"
-          [(ngModel)]="mobile"
-        >
+        <ion-input [disabled]="!edit ? '' : null" style="z-index: 1" [(ngModel)]="mobile">
         </ion-input>
       </ion-col>
     </ion-row>
 
-    <ion-row
-      class="
+    <ion-row class="
         ion-justify-content-center ion-padding-horizontal ion-padding-vertical
-      "
-    >
+      ">
       <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
         <ion-row style="margin-bottom: -0.6em">
-          <ion-label
-            class="ion-padding-horizontal ion-no-padding"
-            style="
+          <ion-label class="ion-padding-horizontal ion-no-padding" style="
               font-size: 16px;
               padding-right: 4px;
               padding-left: 4px;
@@ -171,9 +123,7 @@
               color: #aaaaaa;
               background: #f2f2f7;
               z-index: 2;
-            "
-            translate
-          >
+            " translate>
             Landline number
           </ion-label>
         </ion-row>
@@ -181,16 +131,12 @@
       </ion-col>
     </ion-row>
 
-    <ion-row
-      class="
+    <ion-row class="
         ion-justify-content-center ion-padding-horizontal ion-padding-vertical
-      "
-    >
+      ">
       <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
         <ion-row style="margin-bottom: -0.6em">
-          <ion-label
-            class="ion-padding-horizontal ion-no-padding"
-            style="
+          <ion-label class="ion-padding-horizontal ion-no-padding" style="
               font-size: 16px;
               padding-right: 4px;
               padding-left: 4px;
@@ -198,32 +144,21 @@
               color: #aaaaaa;
               background: #f2f2f7;
               z-index: 2;
-            "
-            translate
-          >
+            " translate>
             Email
           </ion-label>
         </ion-row>
-        <ion-input
-          [disabled]="!edit ? '' : null"
-          style="z-index: 1"
-          [(ngModel)]="email"
-          placeholder="Email "
-        >
+        <ion-input [disabled]="!edit ? '' : null" style="z-index: 1" [(ngModel)]="email" placeholder="Email ">
         </ion-input>
       </ion-col>
     </ion-row>
 
-    <ion-row
-      class="
+    <ion-row class="
         ion-justify-content-center ion-padding-horizontal ion-padding-vertical
-      "
-    >
+      ">
       <ion-col class="ion-text-left ion-no-padding" size="12" size-lg="8">
         <ion-row style="margin-bottom: -0.6em">
-          <ion-label
-            class="ion-padding-horizontal ion-no-padding"
-            style="
+          <ion-label class="ion-padding-horizontal ion-no-padding" style="
               font-size: 16px;
               padding-right: 4px;
               padding-left: 4px;
@@ -231,27 +166,17 @@
               color: #aaaaaa;
               background: #f2f2f7;
               z-index: 2;
-            "
-            translate
-          >
+            " translate>
             Address
           </ion-label>
         </ion-row>
-        <ion-input
-          style="height: 4em; z-index: 1"
-          [(ngModel)]="address"
-          placeholder="Valiasr Sq - Tehran "
-        >
+        <ion-input style="height: 4em; z-index: 1" [(ngModel)]="address" placeholder="Valiasr Sq - Tehran ">
         </ion-input>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col class="ion-text-center">
-        <ion-button
-          style="color: black; --background: #3abff8"
-          (click)="getPosition()"
-          >Get Location</ion-button
-        >
+        <ion-button style="color: black; --background: #3abff8" (click)="getPosition()">Get Location</ion-button>
       </ion-col>
     </ion-row>
   </div>
@@ -259,10 +184,7 @@
   <div class="footer" *ngIf="!edit">
     <ion-row class="ion-justify-content-center ion-padding-horizontal">
       <ion-col class="ion-text-center" size="12" size-lg="8">
-        <ion-button
-          (click)="logout()"
-          shape="round"
-          style="
+        <ion-button (click)="logout()" shape="round" style="
             text-transform: none;
             width: 100%;
             color: black;
@@ -273,9 +195,7 @@
             border: 1px solid #e5e5ea;
             box-shadow: 0px 1px 2px #000000;
             font-weight: lighter;
-          "
-          translate
-        >
+          " translate>
           Log out
         </ion-button>
       </ion-col>
@@ -285,10 +205,7 @@
   <div class="footer" *ngIf="edit">
     <ion-row class="ion-justify-content-center ion-padding-horizontal">
       <ion-col class="ion-text-center" size="12" size-lg="8">
-        <ion-button
-          (click)="save()"
-          shape="round"
-          style="
+        <ion-button (click)="save()" shape="round" style="
             text-transform: none;
             width: 100%;
             color: black;
@@ -299,9 +216,7 @@
             border: 1px solid #e5e5ea;
             box-shadow: 0px 1px 2px #000000;
             font-weight: lighter;
-          "
-          translate
-        >
+          " translate>
           save
         </ion-button>
       </ion-col>

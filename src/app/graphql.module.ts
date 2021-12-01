@@ -4,7 +4,7 @@ import {ApolloClientOptions,ApolloLink, DefaultOptions, InMemoryCache} from '@ap
 import {HttpLink} from 'apollo-angular/http';
 import { setContext } from '@apollo/client/link/context';
 
-const uri = 'https://api.risos.co/graphql/'; // <-- add the URL of the GraphQL server here
+const uri = 'https://api.risos.ir/graphql/'; // <-- add the URL of the GraphQL server here
 
 const defaultOptions: DefaultOptions = {
   watchQuery: {

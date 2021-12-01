@@ -1,7 +1,7 @@
 <!-- <ion-row style="height: 20vh;" *ngFor="let item of tickets|async">
 
   <div class="container" *ngIf="item.node.sender._id != ID">
-    <img src="https://api.risos.co/mediafiles//profile/default-profile.jpg" alt="Avatar">
+    <img src="https://api.risos.ir/mediafiles//profile/default-profile.jpg" alt="Avatar">
     <p>{{item.node.message}}</p>
     <span class="time-right">Sent</span>
   </div>
@@ -15,38 +15,39 @@
 
 </ion-row> -->
 <!-- <ion-row> -->
-  <ion-row class="ion-padding">
-    <ion-col class="ion-text-center">
-      <ion-button color="danger" fill="clear" (click)="close()">
-        <ion-icon name="close"></ion-icon>
-      </ion-button>
-    </ion-col>
-  </ion-row>
+<ion-row class="ion-padding">
+  <ion-col class="ion-text-center">
+    <ion-button color="danger" fill="clear" (click)="close()">
+      <ion-icon name="close"></ion-icon>
+    </ion-button>
+  </ion-col>
+</ion-row>
 
 <div id="fixed">
   <div id="scrollable">
     <ul>
-      <li *ngFor="let item of tickets|async">  <div class="container" *ngIf="item.node.sender._id != ID">
-        <img src="https://api.risos.co/mediafiles//profile/default-profile.jpg" alt="Avatar">
-        <p>{{item.node.message}}</p>
-        <span class="time-right">Received</span>
-      </div>
+      <li *ngFor="let item of tickets|async">
+        <div class="container" *ngIf="item.node.sender._id != ID">
+          <img src="https://api.risos.ir/mediafiles//profile/default-profile.jpg" alt="Avatar">
+          <p>{{item.node.message}}</p>
+          <span class="time-right">Received</span>
+        </div>
 
-      <div class="container darker" *ngIf="item.node.sender._id == ID">
-        <img src="../../../assets/final back white-01.png" alt="Avatar" class="right">
-        <p>{{item.node.message}}</p>
-        <span class="time-left">Sent</span>
-      </div></li>
+        <div class="container darker" *ngIf="item.node.sender._id == ID">
+          <img src="../../../assets/final back white-01.png" alt="Avatar" class="right">
+          <p>{{item.node.message}}</p>
+          <span class="time-left">Sent</span>
+        </div>
+      </li>
     </ul>
   </div>
 </div>
 <!-- </ion-row> -->
 <ion-row>
   <ion-col size="2">
-    <ion-button fill="clear" (click)="send()" >Send</ion-button>
+    <ion-button fill="clear" (click)="send()">Send</ion-button>
   </ion-col>
   <ion-col size="10">
     <ion-input (keyup.enter)="send()" [(ngModel)]="message"></ion-input>
   </ion-col>
 </ion-row>
-

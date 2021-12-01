@@ -1,14 +1,15 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="light" style="box-shadow: 0px 1px 2px #000000">
+        <ion-icon name="help-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title class="ion-text-center" style="color: white" translate>
       Home
     </ion-title>
     <ion-buttons slot="end">
-      <ion-button
-        color="light"
-        (click)="logout()"
-        style="box-shadow: 0px 1px 2px #000000"
-      >
+      <ion-button color="light" (click)="logout()" style="box-shadow: 0px 1px 2px #000000">
         <ion-icon name="power-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -16,40 +17,11 @@
 </ion-header>
 
 <ion-content>
-  <!-- <ion-fab horizontal="start" vertical="bottom" slot="fixed">
-    <ion-fab-button>
-      <ion-icon md="caret-up" ios="chevron-up-circle-outline"></ion-icon>
-    </ion-fab-button>
-    <ion-fab-list side="top">
-      <ion-fab-button color="light" href="https://instagram.com/risos_co">
-        <ion-icon name="logo-instagram"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button
-        color="light"
-        href="https://linkedin.com/company/risos-smart-smile-design-platform"
-      >
-        <ion-icon name="logo-linkedin"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button
-        color="light"
-        href="https://www.google.com/search?q=risos.ir"
-      >
-        <ion-icon name="logo-google"></ion-icon>
-      </ion-fab-button>
-    </ion-fab-list>
-  </ion-fab> -->
-  <ion-row
-    style="padding-top: 2em"
-    class="ion-justify-content-center ion-padding-horizontal ion-padding-top"
-  >
+  <ion-row style="padding-top: 2em" class="ion-justify-content-center ion-padding-horizontal ion-padding-top">
     <ion-col size="4">
       <ion-row class="ion-justify-content-center">
         <ion-col class="vertical-align-content">
-          <img
-            src="../../assets/final back white-01.png"
-            alt=""
-            style="height: 12vh; border-radius: 50%"
-          />
+          <img src="../../assets/final back white-01.png" alt="" style="height: 12vh; border-radius: 50%" />
         </ion-col>
       </ion-row>
     </ion-col>
@@ -68,8 +40,81 @@
       </ion-row>
     </ion-col>
   </ion-row>
+  <ion-row>
+    <ion-col size="6">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>4</ion-card-title>
+        </ion-card-header>
 
+        <ion-card-content>
+          Processing Patients
+        </ion-card-content>
+      </ion-card>
+
+    </ion-col>
+    <ion-col size="6">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>12</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          Processing Orders
+        </ion-card-content>
+      </ion-card>
+
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="6">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>40</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          Total Patients
+        </ion-card-content>
+      </ion-card>
+
+    </ion-col>
+    <ion-col size="6">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>12</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          Available Labs
+        </ion-card-content>
+      </ion-card>
+
+    </ion-col>
+  </ion-row>
   <ion-row class="ion-padding-horizontal ion-padding-top">
+    <ion-col>
+      <ion-label class="ion-text-left">
+        <strong translate> Notifications </strong>
+      </ion-label>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="12">
+      <ion-list>
+        <ion-item>
+          <ion-label>Welcome to our app</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Create your first patients</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Patient Nima is processing</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+  <!-- <ion-row class="ion-padding-horizontal ion-padding-top">
     <ion-col>
       <ion-label class="ion-text-left">
         <strong translate> Menu </strong>
@@ -132,11 +177,7 @@
         </ion-icon>
       </ion-button>
     </ion-col>
-    <!-- <ion-col size="3" class="ion-text-center">
-      <ion-button style="--border-radius: 50%; color: #555555; --background: #560087;" [routerLink]="['/tabs/labs']" shape="circle" size="large">
-        <ion-icon src=""> </ion-icon>
-      </ion-button>
-    </ion-col> -->
+
     <ion-col size="4" class="ion-text-center">
       <ion-button
       joyrideStep="5thStep"
@@ -168,9 +209,9 @@
     </ion-col>
 
 
-  </ion-row>
+  </ion-row> -->
 
-  <ion-row class="ion-padding-horizontal ion-padding-top">
+  <!-- <ion-row class="ion-padding-horizontal ion-padding-top">
     <ion-col>
       <ion-label class="ion-text-left">
         <strong translate> Best Rated Labs </strong>
@@ -193,21 +234,17 @@
             <ion-row><ion-col class="ion-text-center"><ngx-stars [readonly]="true"  [initialStars]=item.node.rating [color]="'#e6fb23'"></ngx-stars></ion-col></ion-row>
 
           </div>
-          <!-- <div class="container"> -->
             <img
               src="../../assets/lab1.png"
               alt="Avatar"
               class="image"
               style="width: 100%"
             />
-            <!-- <div class="middle">
-              <div class="text">{{item.node.rating}}/5</div>
-            </div> -->
-          <!-- </div> -->
+
         </ion-slide>
       </ion-slides>
     </ion-col>
-  </ion-row>
+  </ion-row> -->
 
 
 
@@ -215,7 +252,7 @@
 
 
 
-  <ion-row class="ion-padding-horizontal ion-padding-vertical">
+  <!-- <ion-row class="ion-padding-horizontal ion-padding-vertical">
     <ion-col>
       <ion-label class="ion-text-left">
         <strong translate>
@@ -227,11 +264,11 @@
   <ion-slides [options]="{ slidesPerView: '3.5', zoom: false, grabCursor: true }">
     <ion-slide *ngFor="let item of patients | async" style="width: 15vh; height: 12vh;" class="ion-padding-horizontal">
       <ion-col>
-      <img src="https://api.risos.co/mediafiles/{{item.node.relatedProfile.profilePic}}" alt=""  style="border-radius:20px">
+      <img src="https://api.risos.ir/mediafiles/{{item.node.relatedProfile.profilePic}}" alt=""  style="border-radius:20px">
           <div class="my_Overlay">{{item.node.relatedProfile.firstName}}</div>
         </ion-col>
     </ion-slide>
-  </ion-slides>
+  </ion-slides> -->
 
   <!-- <star-rating value:5 totalstars:5 checkedcolor="yellow" uncheckedcolor="white" size="24px"></star-rating> -->
 </ion-content>

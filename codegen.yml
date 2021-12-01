@@ -1,5 +1,5 @@
 overwrite: true
-schema: "https://api.risos.co/graphql/"
+schema: "https://api.risos.ir/graphql/"
 documents: "src/**/*.graphql"
 generates:
   src/generated/graphql.ts:
