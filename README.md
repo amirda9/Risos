@@ -26,3 +26,7 @@ git clone https://github.com/amirda9/Risos
 cd Risos
 npm i
 ```
+
+### GraphQL URL
+
+Modify codegen.yml and Graphql.module.ts and set the graphql address to your hosted backend and enjoy using that!
