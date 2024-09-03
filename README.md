@@ -1,32 +1,57 @@
+
 # Risos
-Risos Dental Project
 
-# [Ionic Angular] Risos Application
+Risos is a Dental Project aimed at automating the Smile Design procedure. The first version focuses on teeth orientation, leveraging OpenCV to remove original teeth images.
 
-***
+![Risos Icon](/src/assets/icon/favicon.png)
 
-## Purpose
+## Features
 
-The idea is to turn the Smile Design procedure into an automatic type of process and the first step to develop Risos!. Lets make it it real.
-The first version is designed to undertake the teeth orientation and it is powered by a OpenCV to remove the original teeth. 
+- **Automated Smile Design**: Streamlines the process of smile design using OpenCV.
+- **GraphQL Integration**: Easily configurable GraphQL setup for backend communication.
 
-## Installation
+## Getting Started
 
-### Platform & tools
+### Prerequisites
 
-You need to install Node.js and then the development tools. Node.js comes with a package manager called [npm](http://npmjs.org) for installing NodeJS applications and libraries.
-* [Install node.js](http://nodejs.org/download/) (requires node.js version >= 0.8.4)
+Ensure you have the following installed:
 
-### Get the Code
+- [Node.js](https://nodejs.org/) (version >= 0.8.4)
+- npm (comes with Node.js)
 
-Either clone this repository or fork it on GitHub and clone your fork:
+### Installation
 
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/amirda9/Risos.git
+   cd Risos
+   npm install
+   ```
+
+2. Configure the GraphQL endpoint:
+   - Modify `codegen.yml` and `Graphql.module.ts` to point to your backend GraphQL server.
+
+### Running the Application
+
+Start the application using:
+```bash
+npm start
 ```
-git clone https://github.com/amirda9/Risos
-cd Risos
-npm i
-```
 
-### GraphQL URL
+## About
 
-Modify codegen.yml and Graphql.module.ts and set the graphql address to your hosted backend and enjoy using that!
+Risos Dental Project is designed to simplify and automate the Smile Design process.
+
+![Risos Icon](icon.png)
+
+## Contributing
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes and commit them (`git commit -m 'Add some feature'`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Open a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
